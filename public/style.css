@@ -6,6 +6,7 @@ body, html {
     /* overflow: hidden; */
 }
 
+
 .landing-screen {
     position: relative;
     height: 100vh;
@@ -24,34 +25,40 @@ body, html {
 
 .overlay-text {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center; /* Center the text horizontally */
-    color: #E58383; /* Set text color */
-    font-size: 44px; /* Set font size */
-    font-family: 'Milk And Honey';
-    /* font-style: italic;  */
-    font-weight: 200;
-    letter-spacing: -2%;
-     /* Set font family */
+    text-align: center;
+    color: #E58383; 
+  
+ 
    
-     padding: 10% 10%;  
+}
+
+h1 {
+  /* Set text color */
+  font-size: 75px; /* Set font size */
+  font-family: 'Milk And Honey';
+  /* font-style: italic;  */
+  font-weight: 200;
+  letter-spacing: -2%;
+
+     /* Set font family */
 }
 
 .subtitle {
-    font-size: 20px; /* Set font size */
+    font-size: 20px;/* Set font size */
     font-family: 'Satoshi';
     font-weight: 600;
-    padding: 20% 20%; 
-    margin-top: -26%;
+ 
+    margin-top: -33px;
 }
 
 
 
 .animated-mouse {
     position: absolute;
-    top: 70%;
+    top: 72%;
     left: 50%;
     width: 38px;
     height: 63px;
@@ -68,7 +75,7 @@ body, html {
     border-radius: 100%;
     background: #ffeeee;
     left: 50%;
-    top: 70%;
+    top: 90%;
     transform: translate(-50%, 0);
     animation-name: mousePointer;
     animation-duration: 1s;
@@ -94,7 +101,7 @@ main {
 
 h2 {
     color: #E58383; /* Set text color */
-    font-size: 44px; /* Set font size */
+    font-size: 38px; /* Set font size */
     font-family: 'Milk And Honey';
     /* font-style: italic;  */
     font-weight: 200;
@@ -129,7 +136,8 @@ h2 {
 }
 
 footer {
-    background-color: #df787d;
+  background: #df787d;
+
     padding: 30px 0;
     text-align: left;
     padding-left: 12%;
@@ -141,7 +149,7 @@ footer {
     font-size: 16px;
     color: #ffffff;
     font-weight: 500;
-
+    
 
   }
 
@@ -164,12 +172,13 @@ footer {
   }
   
   @media screen and (max-width: 767px) {
-    .overlay-text {
-        font-size: 25px;
+    h1 {
+        font-size: 40px;
         padding: 0;
          /* Font size for larger screens */
 
     }
+
 
     .subtitle {
         font-size: 16px;
