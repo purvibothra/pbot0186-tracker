@@ -5,7 +5,6 @@
     <title>Skincare Tracker</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
     <meta name="description" content="" />
     <link rel="icon" href="favicon.png" />
   </head>
@@ -42,14 +41,63 @@
 
     <section class="skincare-tracker">
       <h2>Skincare Tracker</h2>
+      <div class="container">
+        <div class="filter-container">
+          <h2>Routine</h2>
+          <div class="options">
+            <label><input type="checkbox" value="morning"> Morning</label>
+            <label><input type="checkbox" value="night"> Night</label>
+            <label><input type="checkbox" value="morning-night"> Morning and Night</label>
+            <label><input type="checkbox" value="once-week"> Once a Week</label>
+            <label><input type="checkbox" value="2-3-week"> 2-3 Times a Week</label>
+            <label><input type="checkbox" value="occasional"> Occasional</label>
+          </div>
+        </div>
+        <div class="tracker-container">
+               
+      <button id="addProductButton">Add Product</button>
+      <div id="productList" class="product-list">
+        <!-- Product cards will be dynamically added here -->
+      </div>
+        </div>
+      </div>
+
+
+<div id="productPopup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <h2>Add New Skincare Product</h2>
+    <input type="text" id="productName" placeholder="Product Name">
+    <input type="text" id="productBrand" placeholder="Brand">
+    <button id="saveProductButton">Save</button>
+  </div>
+</div>
+
+
+
      
     </section>
+
+    <section class="top-skincare">
+      <div class="skincare-container">
+        <h2 class="perfect-skincare">Top Tier Skincare</h2>
+        <p class="sub-text">The ultimate list of products you've tried & loved</p>
+      </div>
+    </section>
+    
+
   </main>
   
-  <button id="scrollToTopBtn">Scroll to Top</button>
+  <img src="assets/top-button.png" alt="Scroll to Top" id="scrollToTop" onclick="scrollToTop()">
 
   <footer>
-    <p>Your road to good skin | © Purvi Bothra - DECO2017</p>
+    <p class = "footer-text">Your road to good skin | © Purvi Bothra - DECO2017</p>
   </footer>
+
+
+
+
+  <script src="script.js"></script>
+
   </body>
 </html>

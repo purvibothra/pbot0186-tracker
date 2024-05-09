@@ -92,20 +92,22 @@ h1 {
 
 }
 
-main {
-    margin-left: 12%; /* Adjust the left margin */
-    margin-right: 12%;
+.skincare-dashboard, .skincare-tracker {
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1300px; /* Set maximum width of the container */
+  padding: 0 20px; /* Add padding to create fixed screen margin */
     margin-top: 100px;
 }
    
 
 h2 {
     color: #E58383; /* Set text color */
-    font-size: 38px; /* Set font size */
+    font-size: 44px; /* Set font size */
     font-family: 'Milk And Honey';
     /* font-style: italic;  */
     font-weight: 200;
     letter-spacing: -2%;
+    margin-left: 20px;
 }
 
 .dashboard-container {
@@ -115,7 +117,7 @@ h2 {
   
   .box {
     flex: 1;
-    height: 290px;
+    height: 240px;
     margin: 22px;
     background-color: #ffffff; /* White background */
     border-radius: 20px; /* Add border radius */
@@ -124,6 +126,7 @@ h2 {
   
   .skincare-recommendation {
     flex-basis: calc(50% - 20px);
+    
  /* Adjust width for the rectangular box */
   }
   
@@ -135,40 +138,153 @@ h2 {
     margin-top: 150px;
 }
 
+
+.top-skincare {
+  margin-top: 150px;
+  background: #FFE0E0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 150px;
+
+  
+}
+
+
+.skincare-container {
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1300px; /* Set maximum width of the container */
+  padding: 0 20px; /* Add padding to create fixed screen margin */
+    margin-top: 100px;
+}
+
+.perfect-skincare {
+  text-align: center;
+}
+
+.sub-text {
+  text-align: center;
+  font-weight: 600;
+  color: #df787d;
+  font-size: 18px;
+  margin-top: -30px;
+}
+
+
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  display: inline-block;
+}
+
+.container {
+  display: flex;
+}
+
+.filter-container {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.options {
+  margin-top: 10px;
+}
+
+.options label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.options input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.tracker-container {
+  flex: 1;
+  padding: 20px;
+}
+
+
+
+
+
+
+
 footer {
   background: #df787d;
-
-    padding: 30px 0;
-    text-align: left;
-    padding-left: 12%;
-    margin-top: 100px;
+  padding: 30px 0;
+  text-align: left;
+  margin-top: 80px;
   }
   
-  footer p {
-    margin: 0;
+  .footer-text {
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 1300px; /* Set maximum width of the container */
+    padding: 0 20px;
     font-size: 16px;
     color: #ffffff;
     font-weight: 500;
+    padding-left: 40px;
+
     
 
   }
 
-  #scrollToTopBtn {
+  #scrollToTop {
     position: relative;
-    bottom: 20px;
+ 
     /* right: 20px; */
     left: 50%;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
+    transform: translateX(-50%); /* Center the button horizontally */
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     transition: transform 0.3s; /* Add transition for smooth transform change */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    transition: transform 0.3s, opacity 0.2s ease-in-out; 
   }
   
-  #scrollToTopBtn:hover {
-    background-color: #0056b3;
+  #scrollToTop:hover {
+    opacity: 0.7; 
   }
   
   @media screen and (max-width: 767px) {
@@ -178,7 +294,10 @@ footer {
          /* Font size for larger screens */
 
     }
-
+    main {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
 
     .subtitle {
         font-size: 16px;
