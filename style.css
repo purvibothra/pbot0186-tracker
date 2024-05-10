@@ -1,0 +1,408 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background: #FFFCF6;
+    font-family: 'Satoshi';
+    /* overflow: hidden; */
+}
+
+
+.landing-screen {
+    position: relative;
+    height: 100vh;
+}
+
+.background-image {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.overlay-text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #E58383; 
+  
+ 
+   
+}
+
+h1 {
+  /* Set text color */
+  font-size: 75px; /* Set font size */
+  font-family: 'Milk And Honey';
+  /* font-style: italic;  */
+  font-weight: 200;
+  letter-spacing: -2%;
+
+     /* Set font family */
+}
+
+.subtitle {
+    font-size: 20px;/* Set font size */
+    font-family: 'Satoshi';
+    font-weight: 600;
+ 
+    margin-top: -33px;
+}
+
+
+
+.animated-mouse {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    width: 38px;
+    height: 63px;
+    background:  #E58383;
+    /* border: 2px solid hwb(259 82% 7%); */
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+}
+
+.animated-mouse-pointer {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #ffeeee;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, 0);
+    animation-name: mousePointer;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    /* animation-delay: s; */
+}
+
+@keyframes mousePointer {
+    0%      { opacity: 0.5; top: 70%; }
+    100%    { opacity: 1; top: 20%; }
+
+
+}
+
+.skincare-dashboard, .skincare-tracker {
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1300px; /* Set maximum width of the container */
+  padding: 0 20px; /* Add padding to create fixed screen margin */
+    margin-top: 100px;
+}
+   
+
+h2 {
+    color: #E58383; /* Set text color */
+    font-size: 44px; /* Set font size */
+    font-family: 'Milk And Honey';
+    /* font-style: italic;  */
+    font-weight: 200;
+    letter-spacing: -2%;
+    margin-left: 20px;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .box {
+    flex: 1;
+    height: 240px;
+    margin: 22px;
+    background-color: #ffffff; /* White background */
+    border-radius: 20px; /* Add border radius */
+    box-shadow: 0 0 13px rgba(50, 26, 26, 0.15); /* Add black shadow */
+  }
+  
+  .skincare-recommendation {
+    flex-basis: calc(50% - 20px);
+    
+ /* Adjust width for the rectangular box */
+  }
+  
+  .products-use,.products-restock {
+    flex-basis:  calc(20% - 20px); /* Set width for square boxes */
+}
+
+.skincare-tracker {
+    margin-top: 150px;
+}
+
+
+.top-skincare {
+  margin-top: 150px;
+  background: #FFEEEE;
+  padding-top: 50px;
+  padding-bottom: 600px;
+  margin-bottom: 150px;
+
+  
+}
+
+
+.skincare-container {
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1300px; /* Set maximum width of the container */
+  padding: 0 20px; /* Add padding to create fixed screen margin */
+    margin-top: 100px;
+}
+
+.perfect-skincare {
+  text-align: center;
+}
+
+.sub-text {
+  text-align: center;
+  font-weight: 600;
+  color: #df787d;
+  font-size: 18px;
+  margin-top: -30px;
+}
+
+
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  display: inline-block;
+}
+
+h4 {
+
+  font-weight: 600;
+  color: #df787d;
+  font-size: 22px;
+
+}
+
+.container {
+  display: flex;
+}
+
+.filter-container {
+  flex: 1;
+padding-left: 20px;
+  max-width: 200px;
+}
+
+
+.routine {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #2d2d2d;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.routine input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color:#FFE7E7;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Add transition for background-color */
+
+}
+
+/* On mouse-over, add a grey background color */
+.routine:hover input ~ .checkmark {
+  background-color: #E8D6D6;
+}
+
+/* When the checkbox is checked, add a blue background */
+.routine input:checked ~ .checkmark {
+  background-color: #df787d;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.routine input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.routine .checkmark:after {
+  left: 6px;
+  top: 2.5px;
+  width: 2.5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+   /* Adjust the value as needed */
+
+}
+.custom-select {
+  display: none; /* Hide the select by default */
+}
+
+
+
+
+.tracker-container {
+  flex: 1;
+  padding: 20px;
+}
+
+
+
+
+
+
+
+footer {
+  background: #df787d;
+  padding: 30px 0;
+  text-align: left;
+  margin-top: 80px;
+  }
+  
+  .footer-text {
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 1300px; /* Set maximum width of the container */
+    padding: 0 20px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    padding-left: 40px;
+
+    
+
+  }
+
+  #scrollToTop {
+    position: relative;
+ 
+    /* right: 20px; */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Add transition for smooth transform change */
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    transition: transform 0.3s, opacity 0.2s ease-in-out; 
+  }
+  
+  #scrollToTop:hover {
+    opacity: 0.7; 
+  }
+  
+  @media screen and (max-width: 767px) {
+    h1 {
+        font-size: 40px;
+        padding: 0;
+         /* Font size for larger screens */
+
+    }
+    main {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        padding: 0;
+        margin-top: -8%;
+ /* Set font size */
+
+    }
+.skincare-recommendation  {
+        flex-basis: 100%; /* Full width for the rectangular box */
+      }
+    
+      .products-use,.products-restock{
+        flex-basis: calc(40% - 10px);
+        height: 150px; 
+        margin: 16px;/* Adjust width for the square boxes */
+      }
+
+      .custom-select {
+        display: block; /* Show the select for small screens */
+        padding: 5px;
+        font-size: 16px;
+      }
+      
+      .routine {
+        display: none; /* Hide the checkboxes for small screens */
+      }
+    
+    
+ 
+}
