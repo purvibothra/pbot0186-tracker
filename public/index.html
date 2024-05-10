@@ -43,16 +43,54 @@
       <h2>Skincare Tracker</h2>
       <div class="container">
         <div class="filter-container">
-          <h2>Routine</h2>
+          <h4>Routine</h4>
           <div class="options">
-            <label><input type="checkbox" value="morning"> Morning</label>
-            <label><input type="checkbox" value="night"> Night</label>
-            <label><input type="checkbox" value="morning-night"> Morning and Night</label>
-            <label><input type="checkbox" value="once-week"> Once a Week</label>
-            <label><input type="checkbox" value="2-3-week"> 2-3 Times a Week</label>
-            <label><input type="checkbox" value="occasional"> Occasional</label>
+            <label class = "routine">Morning
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class = "routine">Night
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class = "routine">Morning & Night
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class = "routine">Once a week
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+
+            <label class = "routine">2-3 Times a week
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="routine">Occasional
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
           </div>
+
+
+          <div class="options">
+            <select class="custom-select">
+              <option value="morning">Morning</option>
+              <option value="night">Night</option>
+              <option value="morning-night">Morning and Night</option>
+              <option value="once-week">Once a Week</option>
+              <option value="2-3-week">2-3 Times a Week</option>
+              <option value="occasional">Occasional</option>
+            </select>
+
+            
         </div>
+      </div>
+
         <div class="tracker-container">
                
       <button id="addProductButton">Add Product</button>
@@ -60,7 +98,7 @@
         <!-- Product cards will be dynamically added here -->
       </div>
         </div>
-      </div>
+    
 
 
 <div id="productPopup" class="popup">

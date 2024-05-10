@@ -141,9 +141,9 @@ h2 {
 
 .top-skincare {
   margin-top: 150px;
-  background: #FFE0E0;
+  background: #FFEEEE;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 600px;
   margin-bottom: 150px;
 
   
@@ -214,28 +214,105 @@ h2 {
   display: inline-block;
 }
 
+h4 {
+
+  font-weight: 600;
+  color: #df787d;
+  font-size: 22px;
+
+}
+
 .container {
   display: flex;
 }
 
 .filter-container {
   flex: 1;
-  padding: 20px;
-  background-color: #f0f0f0;
+padding-left: 20px;
+  max-width: 200px;
 }
 
-.options {
+
+.routine {
   margin-top: 10px;
-}
-
-.options label {
+  font-weight: 500;
+  color: #2d2d2d;
   display: block;
-  margin-bottom: 5px;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.options input[type="checkbox"] {
-  margin-right: 5px;
+/* Hide the browser's default checkbox */
+.routine input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
+
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color:#FFE7E7;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Add transition for background-color */
+
+}
+
+/* On mouse-over, add a grey background color */
+.routine:hover input ~ .checkmark {
+  background-color: #E8D6D6;
+}
+
+/* When the checkbox is checked, add a blue background */
+.routine input:checked ~ .checkmark {
+  background-color: #df787d;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.routine input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.routine .checkmark:after {
+  left: 6px;
+  top: 2.5px;
+  width: 2.5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+   /* Adjust the value as needed */
+
+}
+.custom-select {
+  display: none; /* Hide the select by default */
+}
+
+
+
 
 .tracker-container {
   flex: 1;
@@ -315,6 +392,17 @@ footer {
         height: 150px; 
         margin: 16px;/* Adjust width for the square boxes */
       }
+
+      .custom-select {
+        display: block; /* Show the select for small screens */
+        padding: 5px;
+        font-size: 16px;
+      }
+      
+      .routine {
+        display: none; /* Hide the checkboxes for small screens */
+      }
+    
     
  
 }
