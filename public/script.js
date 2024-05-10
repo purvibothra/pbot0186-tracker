@@ -1,7 +1,29 @@
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all routine checkboxes except the "All" checkbox
+  var routineCheckboxes = document.querySelectorAll('.options .routine input[type="checkbox"]:not(#allCheckbox)');
+  // Get the "All" checkbox
+  var allCheckbox = document.getElementById('allCheckbox');
+  
+  // Add change event listener to each routine checkbox
+  routineCheckboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      // If any routine checkbox is checked, uncheck the "All" checkbox
+      if (this.checked) {
+        allCheckbox.checked = false;
+      }
+    });
+  });
+  
+  // Add change event listener to the "All" checkbox
+  allCheckbox.addEventListener('change', function() {
+    // If the "All" checkbox is checked, uncheck all other routine checkboxes
+    if (this.checked) {
+      routineCheckboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+      });
+    }
+  });
+
   const addProductButton = document.getElementById('addProductButton');
   const productPopup = document.getElementById('productPopup');
   const closePopup = document.querySelector('.close');
@@ -45,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
     productCard.innerHTML = `<p>Name: ${product.name}</p><p>Brand: ${product.brand}</p>`;
-    productList.appendChild(productCard);
+    // Insert the new product card at the end of the product list
+    productList.insertBefore(productCard, addProductButton.nextSibling);
   }
 
   function loadProducts() {
@@ -55,5 +78,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Add the "Add Product" button as the first element in the product list
+  productList.insertBefore(addProductButton.parentElement, productList.firstChild);
+
   loadProducts();
 });
+
+function togglePopup() {
+  var popup = document.getElementById("addNew");
+  popup.classList.toggle("show");
+  overlay.classList.toggle("active");
+}
+
+function removePopup() {
+  var popup = document.getElementById("addNew");
+  popup.classList.remove("show");
+  overlay.classList.remove("active");
+}

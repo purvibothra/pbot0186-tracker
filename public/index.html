@@ -45,8 +45,13 @@
         <div class="filter-container">
           <h4>Routine</h4>
           <div class="options">
+
+            <label class = "routine">All
+              <input type="checkbox" checked="checked" id="allCheckbox">
+              <span class="checkmark"></span>
+            </label>
             <label class = "routine">Morning
-              <input type="checkbox" checked="checked">
+              <input type="checkbox" >
               <span class="checkmark"></span>
             </label>
             
@@ -79,6 +84,7 @@
 
           <div class="options">
             <select class="custom-select">
+              <option value="morning">All</option>
               <option value="morning">Morning</option>
               <option value="night">Night</option>
               <option value="morning-night">Morning and Night</option>
@@ -92,25 +98,80 @@
       </div>
 
         <div class="tracker-container">
-               
-      <button id="addProductButton">Add Product</button>
-      <div id="productList" class="product-list">
-        <!-- Product cards will be dynamically added here -->
-      </div>
+
+          <div class="add-product-button">
+            <button id="addProductButton">Add Product</button>
+          </div>
+          <div id="productList" class="product-list">
+            <!-- Product cards will be dynamically added here -->
+          </div>
         </div>
     
 
 
-<div id="productPopup" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-    <h2>Add New Skincare Product</h2>
-    <p> Product Name </p>
-    <input type="text" id="productName" placeholder="Brand">
-    <p> Product Brand </p>
-    <input type="text" id="productBrand" placeholder="Brand">
-    <button id="saveProductButton">Save</button>
-  </div>
+        <div id="productPopup" class="popup">
+          <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="popup-form">
+              <div class="form-left">
+                <h2>Add New Skincare Product</h2>
+                <div class="input-row">
+                  <label for="productName">Product Name:</label>
+                  <input type="text" id="productName" placeholder="Enter product name">
+                </div>
+                <div class="input-row">
+                  <label for="productBrand">Brand:</label>
+                  <input type="text" id="productBrand" placeholder="Enter brand">
+                </div>
+                <div class="input-row">
+                  <label for="productLink">Product Link:</label>
+                  <input type="url" id="productLink" placeholder="Enter product link">
+                </div>
+                <div class="input-row">
+                  <label for="routine">Routine:</label>
+                  <select id="routine">
+                    <option value="morning">Morning</option>
+                    <option value="night">Night</option>
+                    <option value="morning-night">Morning and Night</option>
+                    <option value="once-week">Once a Week</option>
+                  </select>
+                </div>
+                <div class="input-row">
+                  <label for="stockStatus">Stock Status:</label>
+                  <select id="stockStatus">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="input-row">
+                  <label for="productCategory">Product Category:</label>
+                  <select id="productCategory">
+                    <option value="cleanser">Cleanser</option>
+                    <option value="oil">Oil</option>
+                  </select>
+                </div>
+                <div class="input-row">
+                  <label for="cost">Cost:</label>
+                  <input type="text" id="cost" placeholder="Enter cost">
+                </div>
+                <div class="input-row">
+                  <label for="datePurchased">Date Purchased:</label>
+                  <input type="date" id="datePurchased" value="2024-05-12"> <!-- Default value is set to the current date -->
+                </div>
+                <div class="input-row">
+                  <label for="comments">Comments:</label>
+                  <textarea id="comments" placeholder="Enter comments"></textarea>
+                </div>
+              </div>
+              <div class="form-right">
+                <div class="grey-square"></div>
+                <h3>Title</h3>
+              </div>
+            </div>
+            <button id="saveProductButton">Add</button>
+          </div>
+        </div>
+        
 </div>
 
 
