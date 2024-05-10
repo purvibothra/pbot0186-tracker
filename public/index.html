@@ -98,78 +98,88 @@
       </div>
 
         <div class="tracker-container">
-
+          <div class="product-list"> 
           <div class="add-product-button">
             <button id="addProductButton">Add Product</button>
           </div>
           <div id="productList" class="product-list">
-            <!-- Product cards will be dynamically added here -->
-          </div>
+             <!--  Product cards will be dynamically added here -->
         </div>
+        </div>
+        </div>  
     
+   
 
 
         <div id="productPopup" class="popup">
           <div class="popup-content">
             <span class="close">&times;</span>
             <div class="popup-form">
-              <div class="form-left">
-                <h2>Add New Skincare Product</h2>
-                <div class="input-row">
-                  <label for="productName">Product Name:</label>
-                  <input type="text" id="productName" placeholder="Enter product name">
+              <h2>Add New Skincare Product</h2>
+              <div class="form-container">
+                <div class="form-column">
+                 
                 </div>
-                <div class="input-row">
-                  <label for="productBrand">Brand:</label>
-                  <input type="text" id="productBrand" placeholder="Enter brand">
+                <div class="form-column">
+                  <h4 class="form-header">Product Details</h4>
+                  <div class="input-row">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" placeholder="Enter product name">
+                  </div>
+                  <div class="input-row">
+                    <label for="productBrand">Brand:</label>
+                    <input type="text" id="productBrand" placeholder="Enter brand">
+                  </div>
+                  <div class="input-row">
+                    <label for="productLink">Product Link:</label>
+                    <input type="url" id="productLink" placeholder="Enter product link">
+                  </div>
+                  <div class="input-row">
+                    <label for="routineSelect">Routine:</label>
+                    <select id="routineSelect">
+                      <option value="morning">Morning</option>
+                      <option value="night">Night</option>
+                      <option value="morning-night">Morning and Night</option>
+                      <option value="once-week">Once a Week</option>
+                    </select>
+                  </div>
+                  <div class="form-row"> 
+                  <div class="input-row">
+                    <label for="stockStatus">Stock Status:</label>
+                    <select id="stockStatus">
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div class="input-row">
+                    <label for="productCategory">Product Category:</label>
+                    <select id="productCategory">
+                      <option value="cleanser">Cleanser</option>
+                      <option value="oil">Oil</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="input-row">
-                  <label for="productLink">Product Link:</label>
-                  <input type="url" id="productLink" placeholder="Enter product link">
-                </div>
-                <div class="input-row">
-                  <label for="routine">Routine:</label>
-                  <select id="routine">
-                    <option value="morning">Morning</option>
-                    <option value="night">Night</option>
-                    <option value="morning-night">Morning and Night</option>
-                    <option value="once-week">Once a Week</option>
-                  </select>
-                </div>
-                <div class="input-row">
-                  <label for="stockStatus">Stock Status:</label>
-                  <select id="stockStatus">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </div>
-                <div class="input-row">
-                  <label for="productCategory">Product Category:</label>
-                  <select id="productCategory">
-                    <option value="cleanser">Cleanser</option>
-                    <option value="oil">Oil</option>
-                  </select>
-                </div>
-                <div class="input-row">
-                  <label for="cost">Cost:</label>
-                  <input type="text" id="cost" placeholder="Enter cost">
-                </div>
-                <div class="input-row">
-                  <label for="datePurchased">Date Purchased:</label>
-                  <input type="date" id="datePurchased" value="2024-05-12"> <!-- Default value is set to the current date -->
-                </div>
-                <div class="input-row">
-                  <label for="comments">Comments:</label>
-                  <textarea id="comments" placeholder="Enter comments"></textarea>
+                  <div class="input-row">
+                    <label for="cost">Cost:</label>
+                    <input type="text" id="cost" placeholder="Enter cost">
+                  </div>
+                  <div class="input-row">
+                    <label for="datePurchased">Date Purchased:</label>
+                    <input type="date" id="datePurchased" value="2024-05-12">
+                  </div>
+                  <div class="input-row">
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" placeholder="Enter comments"></textarea>
+                  </div>
+                  <h4 class="form-header">Ranking</h4>
                 </div>
               </div>
-              <div class="form-right">
-                <div class="grey-square"></div>
-                <h3>Title</h3>
-              </div>
+              <button id="saveProductButton">Add</button>
             </div>
-            <button id="saveProductButton">Add</button>
           </div>
+        </div>
+
+
         </div>
         
 </div>

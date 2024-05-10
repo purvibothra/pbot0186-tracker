@@ -41,11 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
   saveProductButton.addEventListener('click', function () {
     const productName = document.getElementById('productName').value;
     const productBrand = document.getElementById('productBrand').value;
+    const routineSelect = document.getElementById('routineSelect').value;
 
     if (productName && productBrand) {
       const product = {
         name: productName,
-        brand: productBrand
+        brand: productBrand,
+        routine: routineSelect
+
       };
 
       saveProduct(product);
@@ -53,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       productPopup.style.display = 'none';
     } else {
-      alert('Please enter product name and brand.');
+      alert('Please enter product details.');
     }
   });
 
@@ -66,11 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
   function displayProduct(product) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
-    productCard.innerHTML = `<p>Name: ${product.name}</p><p>Brand: ${product.brand}</p>`;
-    // Insert the new product card at the end of the product list
-    productList.insertBefore(productCard, addProductButton.nextSibling);
+    productCard.innerHTML = `<p>Name: ${product.name}</p><p>Brand: ${product.brand}</p><p>Routine: ${product.routine}</p>`;
+    // Insert the new product card after the "Add Product" button
+    addProductButton.parentElement.insertAdjacentElement('beforeend', productCard);
   }
-
   function loadProducts() {
     const products = JSON.parse(localStorage.getItem('products')) || [];
     products.forEach(product => {
@@ -84,14 +86,3 @@ document.addEventListener('DOMContentLoaded', function() {
   loadProducts();
 });
 
-function togglePopup() {
-  var popup = document.getElementById("addNew");
-  popup.classList.toggle("show");
-  overlay.classList.toggle("active");
-}
-
-function removePopup() {
-  var popup = document.getElementById("addNew");
-  popup.classList.remove("show");
-  overlay.classList.remove("active");
-}
