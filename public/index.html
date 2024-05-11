@@ -100,7 +100,7 @@
         <div class="tracker-container">
           <div class="product-list"> 
           <div class="add-product-button">
-            <button id="addProductButton">Add Product</button>
+            <button id="addProductButton">+ Add Skincare</button>
           </div>
           <div id="productList" class="product-list">
              <!--  Product cards will be dynamically added here -->
@@ -111,70 +111,109 @@
    
 
 
-        <div id="productPopup" class="popup">
+        <div id="productPopUp" class="popup">
           <div class="popup-content">
             <span class="close">&times;</span>
             <div class="popup-form">
-              <h2>Add New Skincare Product</h2>
+             
               <div class="form-container">
                 <div class="form-column">
-                 
+                  <h2 class = "form-title">New <br>Skincare</h2>
                 </div>
                 <div class="form-column">
                   <h4 class="form-header">Product Details</h4>
                   <div class="input-row">
-                    <label for="productName">Product Name:</label>
-                    <input type="text" id="productName" placeholder="Enter product name">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" placeholder="Green Tea Cleanser">
                   </div>
                   <div class="input-row">
-                    <label for="productBrand">Brand:</label>
-                    <input type="text" id="productBrand" placeholder="Enter brand">
+                    <label for="productBrand">Brand</label>
+                    <input type="text" id="productBrand" placeholder="Skincare Goods">
                   </div>
                   <div class="input-row">
-                    <label for="productLink">Product Link:</label>
-                    <input type="url" id="productLink" placeholder="Enter product link">
+                    <label for="productLink">Product Link</label>
+                    <input type="url" id="productLink" placeholder="https://productpage.com">
                   </div>
                   <div class="input-row">
-                    <label for="routineSelect">Routine:</label>
+                    <label for="routineSelect">Routine</label> 
                     <select id="routineSelect">
+                      <option value="" selected disabled>Select</option>
+
                       <option value="morning">Morning</option>
                       <option value="night">Night</option>
                       <option value="morning-night">Morning and Night</option>
                       <option value="once-week">Once a Week</option>
+                      <option value="2-3-times">2-3 Times a week</option>
+                      <option value="Occasional">Occasional</option>
+
                     </select>
                   </div>
                   <div class="form-row"> 
-                  <div class="input-row">
-                    <label for="stockStatus">Stock Status:</label>
+                  <div class="input-row new-row">
+                    <label for="stockStatus">Stock Status</label>
                     <select id="stockStatus">
-                      <option value="yes">Yes</option>
-                      <option value="no">No</option>
+                      <option value="" selected disabled>Select</option>
+
+                      <option value="wishlist">Wishlist</option>
+                      <option value="in-stock">In Stock</option>
+                      <option value="running-out">Running Out</option>
+                      <option value="restock">Restock</option>
+                      <option value="finished">Finished</option>
+                      <option value="not-using">No Longer Using</option>
+
+
+
+
                     </select>
                   </div>
                   <div class="input-row">
-                    <label for="productCategory">Product Category:</label>
+                    <label for="productCategory">Product Category</label>
                     <select id="productCategory">
+                      <option value="" selected disabled>Select</option>
+
                       <option value="cleanser">Cleanser</option>
-                      <option value="oil">Oil</option>
+                      <option value="toner">Toner</option>
+                      <option value="moisturiser">Moisturiser</option>
+                      <option value="sunscreen">Sunscreen</option>
+                      <option value="serum">Serum</option>
+                      <option value="exfoliator">Exfoliator</option>
+                      <option value="face-mask">Face Mask</option>
+                      <option value="eye-cream">Eye Cream</option>
+                      <option value="face-oil">Face Oil</option>
+                      <option value="sheet-mask">Sheet Mask</option>
+                      <option value="spot-treatment">Spot Treatment</option>
+                      <option value="makeup-remover">Makeup Remover</option>
+
+
+
+
+
+
+
+
+
                     </select>
                   </div>
                 </div>
-                  <div class="input-row">
+                <div class="form-row"> 
+                  <div class="input-row new-row"> 
                     <label for="cost">Cost:</label>
-                    <input type="text" id="cost" placeholder="Enter cost">
+                    <input type="text" id="cost" placeholder="$10">
                   </div>
                   <div class="input-row">
-                    <label for="datePurchased">Date Purchased:</label>
-                    <input type="date" id="datePurchased" value="2024-05-12">
+                    <label for="datePurchased">Date Purchased</label>
+                    <input type="date" id="datePurchased" value="">
                   </div>
+                </div>
                   <div class="input-row">
-                    <label for="comments">Comments:</label>
+                    <label for="comments">Comments</label>
                     <textarea id="comments" placeholder="Enter comments"></textarea>
                   </div>
-                  <h4 class="form-header">Ranking</h4>
+                  <h4 class="ranking-header">Ranking</h4>
+                  <div class="save-product"> <button id="saveProductButton">Add</button> </div>
+
                 </div>
-              </div>
-              <button id="saveProductButton">Add</button>
+           
             </div>
           </div>
         </div>

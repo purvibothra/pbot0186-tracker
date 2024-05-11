@@ -24,18 +24,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+
   const addProductButton = document.getElementById('addProductButton');
-  const productPopup = document.getElementById('productPopup');
+  const productPopUp = document.getElementById('productPopUp');
   const closePopup = document.querySelector('.close');
   const saveProductButton = document.getElementById('saveProductButton');
   const productList = document.getElementById('productList');
 
   addProductButton.addEventListener('click', function () {
-    productPopup.style.display = 'block';
+    productPopUp.classList.add('active'); // Add the active class to show the popup
+
+     productPopUp.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+
   });
 
   closePopup.addEventListener('click', function () {
-    productPopup.style.display = 'none';
+    productPopUp.classList.remove('active'); // Remove the active class to hide the popup
+
+   productPopUp.style.display = 'none';
+    document.body.style.overflow = ''; // Enable scrolling
+
   });
 
   saveProductButton.addEventListener('click', function () {
@@ -54,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
       saveProduct(product);
       displayProduct(product);
 
-      productPopup.style.display = 'none';
+      productPopUp.style.display = 'none';
     } else {
       alert('Please enter product details.');
     }
@@ -86,3 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
   loadProducts();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the date input element
+  const datePurchasedInput = document.getElementById('datePurchased');
+  
+  // Get today's date in the format yyyy-mm-dd
+  const today = new Date().toISOString().split('T')[0];
+  
+  // Set the value of the date input to today's date
+  datePurchasedInput.value = today;
+});
