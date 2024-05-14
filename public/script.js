@@ -105,3 +105,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set the value of the date input to today's date
   datePurchasedInput.value = today;
 });
+
+// Get all star elements
+const stars = document.querySelectorAll('.rate i');
+
+// Loop through each star
+stars.forEach((star, index) => {
+  // Add click event listener to each star
+  star.addEventListener('click', () => {
+    // Set the rating based on the index of the clicked star
+    setRating(index + 1);
+  });
+});
+
+// Function to set the rating
+function setRating(rating) {
+  // Reset all stars to default color
+  stars.forEach((star, index) => {
+    star.style.color = index < rating ? '#E26F6F' : '#f5c1c1';
+  });
+}

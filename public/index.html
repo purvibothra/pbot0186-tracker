@@ -112,15 +112,22 @@
 
 
         <div id="productPopUp" class="popup">
+        
           <div class="popup-content">
-            <span class="close">&times;</span>
+            <div class="scroll-button"> 
+              <img src="assets/popup-image.png" class="popup-image">
+            </div>
+            <!-- <span class="close">&times;</span> -->
+            
             <div class="popup-form">
-             
+              <div id="close-button">
+                <img src="assets/close-button.png" class="close">
+              </div>
               <div class="form-container">
                 <div class="form-column">
                   <h2 class = "form-title">New <br>Skincare</h2>
                 </div>
-                <div class="form-column">
+                <div class="form-column input">
                   <h4 class="form-header">Product Details</h4>
                   <div class="input-row">
                     <label for="productName">Product Name</label>
@@ -210,6 +217,8 @@
                     <textarea id="comments" placeholder="Enter comments"></textarea>
                   </div>
                   <h4 class="ranking-header">Ranking</h4>
+                  <span class="rate"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span>
+
                   <div class="save-product"> <button id="saveProductButton">Add</button> </div>
 
                 </div>
@@ -238,7 +247,9 @@
 
   </main>
   
+  <div class="scroll-button"> 
   <img src="assets/top-button.png" alt="Scroll to Top" id="scrollToTop" onclick="scrollToTop()">
+</div>
 
   <footer>
     <p class = "footer-text">Your road to good skin | © Purvi Bothra - DECO2017</p>

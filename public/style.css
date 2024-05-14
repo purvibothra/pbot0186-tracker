@@ -174,7 +174,7 @@ h2 {
 h4 {
 
   font-weight: 600;
-  color: #E26F6F;
+  color: #D55D5D;
   font-size: 22px;
 
 }
@@ -321,28 +321,53 @@ margin: 10px;
   opacity: 0;
   transition: opacity 0.3s ease; /* Apply transition to transform */
   border-radius: 20px;
+
 }
 
 #productPopUp {
   background-color: rgba(54, 30, 30, 0.6);
   border-radius: 0px;
 
+
 }
+
+
 
 .popup-form .form-title {
   font-size: 60px;
 }
 .popup-content {
-  background-color: #FFFCF6;;
+  background-color: #ffffff;;
   position: absolute; /* Position relative to the parent */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
-  padding: 20px;
+overflow: hidden;
   width: 60%;
+ 
   max-width: 1200px; /* Optional: set a maximum width */
   animation: fadeIn 0.4s;
   border-radius: 30px;
+}
+
+
+#close-button {
+  position: absolute;
+  left: calc(100% - 70px); /* Position the close button to the right side */
+  top: 70px; /* Add margin to the top of the element */
+  text-align: center; /* Center horizontally */
+  line-height: 36px; /* Center vertically */
+  padding-right: 40px;
+  transition: opacity 0.3s, transform 0.3s; /* Add transition effect for opacity and transform */
+}
+
+.close {
+  width: 36px;
+}
+
+#close-button:hover {
+  opacity: 0.7;
+  transform: scale(1.05); /* Scale the button on hover */
 }
 
 @keyframes fadeIn {
@@ -356,12 +381,7 @@ margin: 10px;
   opacity: 1; /* Set opacity to 1 when active */
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+
 
 .close:hover,
 .close:focus {
@@ -382,8 +402,8 @@ margin: 10px;
   display: flex;
   flex-direction: row;
   gap: 20px;
-  margin-left: 70px; 
-  margin-right: 70px;/* Adjust the gap between columns */
+  margin-left: 80px; 
+  margin-right: 80px;/* Adjust the gap between columns */
 }
 .form-column {
   flex: 1;
@@ -392,12 +412,20 @@ margin: 10px;
 
 }
 
+.form-column.input {
+  margin-right: 20px;
+
+
+}
+
 h4.form-header {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 h4.ranking-header {
   margin-top: 3px;
+  margin-bottom: 10px;
+
 }
 
 ::placeholder {
@@ -470,6 +498,8 @@ h4.ranking-header {
 }
 #saveProductButton {
   width: 100px;
+
+  margin-bottom: 20px;
   font-family: 'Satoshi';
   font-size: 15px;
   border-radius: 20px;
@@ -509,24 +539,146 @@ footer {
 
   }
 
+
+  .scroll-button {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   #scrollToTop {
-    position: relative;
  
-    /* right: 20px; */
-    left: 50%;
-    transform: translateX(-50%); /* Center the button horizontally */
+ 
+   
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     transition: transform 0.3s; /* Add transition for smooth transform change */
     width: 50px; /* Adjust width as needed */
-    height: 50px; /* Adjust height as needed */
-    transition: transform 0.3s, opacity 0.2s ease-in-out; 
+    height: auto; /* Adjust height as needed */
+    transition: scale 0.3s, opacity 0.2s ease-in-out; 
   }
   
   #scrollToTop:hover {
     opacity: 0.7; 
+    scale: 1.1
   }
+
+
+
+  .popup-image {
+    margin-top: -20px;
+    width: 100%;
+  }
+
+
+/* These styles are applied by default.
+   They will also override the hover
+   style for all stars to the right
+   of the currently hovered star. */
+   .rate i, .rate i:hover ~ i {
+    color: #f5c1c1;
+    text-shadow: none;
+    transition: color 200ms,
+                text-shadow 200ms;
+    /* This will remove the delay when
+       moving the cursor left or right
+       within the set of stars. */
+    transition-delay: 0;
+  }
+  
+  /* This is the style that will be
+     applied to all stars and then
+     subsequently removed from the stars
+     to the right of the one being
+     hovered. */
+  .rate:hover i {
+    color: #E26F6F;
+    text-shadow: #ffd9d9 0 0 20px;
+  }
+  
+  /* Make the effect apply one star at a
+     time. Limiting the selector to when
+     .rate is hovered removes the effect
+     without delay when cursor leaves
+     the .rate area. */
+  .rate:hover i:nth-child(2) {
+    transition-delay: 30ms;
+  }
+  
+  .rate:hover i:nth-child(3) {
+    transition-delay: 60ms;
+  }
+  
+  .rate:hover i:nth-child(4) {
+    transition-delay: 90ms;
+  }
+  
+  .rate:hover i:nth-child(5) {
+    transition-delay: 120ms;
+  }
+  
+  /* Miscellaneous styles. */
+  .rate i {
+    cursor: pointer;
+    font-style: normal;
+    font-size: 30px;
+    height: auto;
+    letter-spacing: 6px; /* Adjust the value as needed */
+
+  }
+
+/* Add custom styles for input fields */
+input[type="text"],
+input[type="url"],
+input[type="date"],
+textarea,
+#productCategory,
+#stockStatus,
+#routineSelect,
+select {
+  width: 100%;
+  padding: 10px;
+  background-color: #fdf4f4;
+  border: none;
+  border-radius: 30px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Satoshi-Medium';
+  color: #2b2b2b;
+
+}
+
+#comments {
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #2b2b2b;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Satoshi-Medium';
+  color: #2b2b2b;
+
+}
+
+/* Add specific styles for form labels */
+label {
+  display: block;
+}
+
+
+
+
+
+  
   
   @media screen and (max-width: 767px) {
     h1 {
@@ -544,6 +696,7 @@ footer {
         font-size: 16px;
         padding: 0;
         margin-top: -8%;
+
  /* Set font size */
 
     }
@@ -566,7 +719,23 @@ footer {
       .routine {
         display: none; /* Hide the checkboxes for small screens */
       }
+      .form-container {
+        flex-direction: column; /* Change flex direction to column for mobile view */
+        margin-left: 20px; /* Adjust margins as needed */
+        margin-right: 20px;
+      }
+      .form-column {
+        flex: none; /* Disable flex for columns in mobile view */
+        width: 100%; /* Set width to 100% for mobile view */
+      }
+      .input-row {
+        margin-bottom: 20px; /* Increase margin between input rows */
+      }
     
-    
+    .popup-content {
+      width: 100%;
+      overflow: auto;
+    }
  
 }
+
