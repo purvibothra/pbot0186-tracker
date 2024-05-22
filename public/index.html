@@ -42,7 +42,12 @@
     <section class="skincare-tracker">
       <h2>Skincare Tracker</h2>
       <div class="container">
+        
         <div class="filter-container">
+          <div class="add-product-button">
+            <button id="addProductButton">+ Add Skincare</button>
+          </div> 
+      
           <h4>Routine</h4>
           <div class="options">
 
@@ -98,10 +103,10 @@
       </div>
 
         <div class="tracker-container">
-          <div class="product-list"> 
-          <div class="add-product-button">
+         <!-- <div class="add-product-button">
             <button id="addProductButton">+ Add Skincare</button>
-          </div>
+          </div>  -->
+          <div class="product-list"> 
           <div id="productList" class="product-list">
              <!--  Product cards will be dynamically added here -->
         </div>
@@ -126,20 +131,31 @@
               <div class="form-container">
                 <div class="form-column">
                   <h2 class = "form-title">New <br>Skincare</h2>
-                </div>
+                  <div class="image-placeholder">
+                    <img id="productImage"  class="product-image" src="assets/placeholder.png" alt="Image Placeholder">
+                  </div>
+                  <h4 class="ranking-header">Ranking</h4>
+                  <span class="rate">
+                    <i data-rating="1">★</i>
+                    <i data-rating="2">★</i>
+                    <i data-rating="3">★</i>
+                    <i data-rating="4">★</i>
+                    <i data-rating="5">★</i>
+                  </span>
+                                  </div>
                 <div class="form-column input">
                   <h4 class="form-header">Product Details</h4>
                   <div class="input-row">
                     <label for="productName">Product Name</label>
-                    <input type="text" id="productName" placeholder="Green Tea Cleanser">
+                    <input type="text" id="productName" class="input-text" placeholder="Green Tea Cleanser">
                   </div>
                   <div class="input-row">
                     <label for="productBrand">Brand</label>
-                    <input type="text" id="productBrand" placeholder="Skincare Goods">
+                    <input type="text" id="productBrand" class="input-text" placeholder="Skincare Goods">
                   </div>
                   <div class="input-row">
                     <label for="productLink">Product Link</label>
-                    <input type="url" id="productLink" placeholder="https://productpage.com">
+                    <input type="url" id="productLink" class="input-text" placeholder="https://productpage.com">
                   </div>
                   <div class="input-row">
                     <label for="routineSelect">Routine</label> 
@@ -205,19 +221,18 @@
                 <div class="form-row"> 
                   <div class="input-row new-row"> 
                     <label for="cost">Cost:</label>
-                    <input type="text" id="cost" placeholder="$10">
+                    <input type="text" id="cost" class="input-text" placeholder="$10">
                   </div>
                   <div class="input-row">
                     <label for="datePurchased">Date Purchased</label>
-                    <input type="date" id="datePurchased" value="">
+                    <input type="date" id="datePurchased" class="input-text" value="">
                   </div>
                 </div>
                   <div class="input-row">
                     <label for="comments">Comments</label>
-                    <textarea id="comments" placeholder="Enter comments"></textarea>
+                    <textarea id="comments" class="input-text" placeholder="Texture, feeling, effectiveness, quality, long-lasting..."></textarea>
                   </div>
-                  <h4 class="ranking-header">Ranking</h4>
-                  <span class="rate"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span>
+                
 
                   <div class="save-product"> <button id="saveProductButton">Add</button> </div>
 

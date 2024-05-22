@@ -1,8 +1,35 @@
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('fonts/OTF/Satoshi-Black.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-BlackItalic.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-Bold.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-BoldItalic.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-Italic.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-Light.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-LightItalic.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-Medium.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-MediumItalic.otf') format('opentype'),
+       url('fonts/OTF/Satoshi-Regular.otf') format('opentype'),
+       url('fonts/TTF/Satoshi-Variable.ttf') format('truetype'),
+       url('fonts/TTF/Satoshi-VariableItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Milk And Honey';
+  src: url('fonts/milk_and_honey/Milk And Honey.otf') format('opentype');
+  src: url('fonts/milk_and_honey/Milk And Honey.ttf') format('truetype');
+}
+
+
+
+
+
 body, html {
     margin: 0;
     padding: 0;
-    background: #FFFCF6;
-    font-family: 'Satoshi';
+    background: #ffffff;
+    font-family: 'Satoshi-Medium';
     /* overflow: hidden; */
 }
 
@@ -48,7 +75,7 @@ h1 {
 
 .subtitle {
     font-size: 20px;/* Set font size */
-    font-family: 'Satoshi';
+    font-family: 'Satoshi-Medium';
     font-weight: 600;
  
     margin-top: -33px;
@@ -110,6 +137,14 @@ h2 {
     margin-left: 20px;
 }
 
+h2.form-title {
+  margin-left: 0px;
+  margin-bottom: 20px;
+
+
+  
+
+}
 .dashboard-container {
     display: flex;
     flex-wrap: wrap;
@@ -175,7 +210,7 @@ h4 {
 
   font-weight: 600;
   color: #D55D5D;
-  font-size: 22px;
+  font-size: 18px;
 
 }
 
@@ -186,7 +221,7 @@ h4 {
 .filter-container {
   flex: 1;
 padding-left: 20px;
-  max-width: 200px;
+  max-width: 240px;
 }
 
 
@@ -277,17 +312,109 @@ padding-left: 20px;
 
 .tracker-container {
   flex: 1;
-  padding: 20px;
+
 }
 
 .product-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
-  width: 300px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 18px;
+  width: 280px;
   display: inline-block;
   vertical-align: middle;
+  box-shadow: 0 0 13px rgba(84, 37, 37, 0.1); /* Add black shadow */
+
+}
+
+.product-name {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 0px;
+  color: #2d2d2d;
+}
+
+.product-brand {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+  font-family: 'Satoshi-Regular'
+}
+
+.delete-product {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: -6px;
+  margin-top: 10px;
+
+
+}
+
+.delete-product img {
+  width: 36px;
+  background-color: #5d5d5d00;
+  transition: opacity 0.3s ease; /* Add transition effect */
+
+}
+.delete-product:hover img {
+  opacity: 0.5;
+}
+
+
+.date-info {
+  display: block;
+  font-size: 14px;
+  margin-top: 14px;
+  font-family: 'Satoshi-Regular';
+  color: #5d5d5d;
+}
+
+/* Define common styles for the stock-status div */
+.stock-status {
+  padding: 5px 10px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: -5px;
+  font-size: 12px;
+  font-family: 'Satoshi-Regular'
+}
+
+/* Styles for different stock statuses */
+.stock-status.wishlist {
+  background-color: #ffe8f9; /* Yellow */
+  color: #8a486e; /* Black text */
+
+}
+
+.stock-status.in-stock {
+  background-color: #fff7e0; /* Green */
+  color: #ba9129; /* White text */
+}
+
+.stock-status.running-out {
+  background-color: #ffdddd; /* Orange */
+  color: #b55555; /* White text */
+}
+
+.stock-status.restock {
+  background-color: #e1f2dc; /* Blue */
+  color: #515f4a; /* White text */
+}
+
+.stock-status.finished {
+  background-color: #e6f5f9; /* Red */
+  color: #4d7c97; /* White text */
+}
+
+.stock-status.not-using {
+  background-color: #f3e8fa; /* Grey */
+  color: #564567; /* White text */
+}
+
+.rate {
+  display: block;
+  margin-top: 5px;
 }
 
 #addProductButton {
@@ -295,18 +422,27 @@ padding-left: 20px;
   background-color: #E26F6F;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
-  width: 320px;
-  height: 110px;
-margin: 10px;
+  width: 200px;
+  height: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
   padding-left: 10px;
   padding-right: 10px;
-  font-family: 'Satoshi';
-  font-size: 20px;
+  font-family: 'Satoshi-Medium';
+  font-size: 18px;
   font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Apply transition to background-color and color */
+
+
 }
 
+#addProductButton:hover {
+  background-color: #ffe3e3;
+  color: #E26F6F;;
+}
 
 
 .popup {
@@ -334,7 +470,8 @@ margin: 10px;
 
 
 .popup-form .form-title {
-  font-size: 60px;
+  font-size: 55px;
+  margin-top: 30px;
 }
 .popup-content {
   background-color: #ffffff;;
@@ -343,9 +480,9 @@ margin: 10px;
   top: 50%;
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
 overflow: hidden;
-  width: 60%;
- 
-  max-width: 1200px; /* Optional: set a maximum width */
+  width: 900px;
+ height: 640px;
+  /* max-width: 1200px; Optional: set a maximum width */
   animation: fadeIn 0.4s;
   border-radius: 30px;
 }
@@ -402,13 +539,14 @@ overflow: hidden;
   display: flex;
   flex-direction: row;
   gap: 20px;
-  margin-left: 80px; 
-  margin-right: 80px;/* Adjust the gap between columns */
+  margin-left: 60px; 
+  margin-right: 60px;/* Adjust the gap between columns */
 }
 .form-column {
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-right: 0px;
 
 }
 
@@ -423,27 +561,59 @@ h4.form-header {
 }
 
 h4.ranking-header {
-  margin-top: 3px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 
 }
 
 ::placeholder {
-  color: #999; /* Change placeholder color */
-  font-family: 'Satoshi';
-  font-size: 16px;
+  color: #cab3b3; /* Change placeholder color */
+  font-family: 'Satoshi-Regular';
+  font-size: 14px;
+  padding-left: 0px;
+
   /* Add any other styles you want */
 }
 
+.image-placeholder {
+  display: flex;
+  margin-right: 30px;
+  height: 280px;
+  background-color: #ffffff;
+  border-radius:13px;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+
+}
+
+
+
+/* Alternative: Set both width and height */
+.product-image {
+  
+  height: 200px;
+  width: 280px;
+  object-fit: cover; /* This will crop the image to fit the specified dimensions */
+}
+
+p.image-text {
+  margin:auto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  color: #c4a0a0;
+}
 
 .input-row label {
   display: block;
   margin-bottom: 5px;
   color: #1c1c1c;
+  font-size: 14px;
 }
 
 .input-row {
-  margin-bottom: 15px;
+  margin-bottom: 7px;
 }
 
 .label-column {
@@ -460,28 +630,22 @@ h4.ranking-header {
 
 .new-row {
   margin-right: 20px;
+  margin-bottom: 0px;
 }
 
 .input-row input,
 .input-row select,
 .input-row textarea {
   width: 100%;
-  padding: 8px;
+
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .input-row textarea {
   resize: vertical;
-}
-
-.grey-square {
-  width: 100px;
-  height: 100px;
-  background-color: #ccc;
-  margin-bottom: 10px;
 }
 
 .popup-form h3 {
@@ -500,7 +664,7 @@ h4.ranking-header {
   width: 100px;
 
   margin-bottom: 20px;
-  font-family: 'Satoshi';
+  font-family: 'Satoshi-Medium';
   font-size: 15px;
   border-radius: 20px;
   border: none;
@@ -639,31 +803,72 @@ textarea,
 #routineSelect,
 select {
   width: 100%;
-  padding: 10px;
+  padding: 6px;
   background-color: #fdf4f4;
   border: none;
   border-radius: 30px;
   box-sizing: border-box;
-  font-size: 16px;
-  font-family: 'Satoshi-Medium';
-  color: #2b2b2b;
+  font-size: 14px;
+  font-family: 'Satoshi-Regular';
+  color: #202020;
+  margin-bottom: 3px;
+
 
 }
 
+
+
+/* Change background color when the input is filled and valid */
+input[type="text"]:valid,
+input[type="url"]:valid,
+input[type="date"]:valid,
+#comments,
+textarea:valid,
+#productCategory:valid,
+#stockStatus:valid,
+#routineSelect:valid,
+select:valid {
+  background-color: #fdf4f4; /* Change to desired background color */
+}
+
+/* Customize the appearance of input fields on hover */
+input[type="text"]:hover,
+input[type="url"]:hover,
+input[type="date"]:hover,
+textarea:hover,
+#productCategory:hover,
+#stockStatus:hover,
+#routineSelect:hover,
+select:hover
+#comments:hover {
+  border: 1.5px solid #ffb6b6; /* Custom border color on hover */
+}
+
+/* Prevent autofill background from being overridden */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+.input-row .input-text {
+  padding-left: 8px;
+}
 #comments {
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #2b2b2b;
+
 }
 select {
   width: 100%;
-  padding: 10px;
+  padding: 6px;
   margin-bottom: 15px;
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Satoshi-Medium';
   color: #2b2b2b;
 
@@ -675,7 +880,9 @@ label {
 }
 
 
-
+.product-image {
+  border-radius: 20px;
+}
 
 
   
@@ -735,6 +942,40 @@ label {
     .popup-content {
       width: 100%;
       overflow: auto;
+    }
+    .tracker-container {
+      display: block;
+      overflow-x: auto; /* Allow horizontal scrolling */
+
+      /* flex-direction: row; */
+      /* flex-direction: row; */
+    }
+    .container {
+      display: block;
+      /* max-width: 1000px */
+
+    }
+    .filter-container {
+      max-width: 90%;
+    }
+
+    #addProductButton {
+      width: 100%;
+    }
+
+    .product-card {
+      flex: 0 0 auto; /* Reset flex-grow and flex-shrink */
+      width: auto; /* Reset width */
+      margin-right: 10px; /* Adjust spacing between product cards */
+    }
+
+    .product-image {
+      width: 100%;
+    }
+
+    .product-list {
+      display: flex;
+      flex-direction: row;
     }
  
 }
