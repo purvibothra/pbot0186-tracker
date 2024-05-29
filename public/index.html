@@ -9,6 +9,14 @@
     <link rel="icon" href="favicon.png" />
   </head>
   <body>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#tracker">Tracker</a></li>
+        <li><a href="#top-skincare">Top Skincare</a></li>
+      </ul>
+    </nav>
    <header> 
     <div class="landing-screen">
       <img
@@ -29,18 +37,41 @@
     </header>
 
     <main> 
-    <section class="skincare-dashboard">
+    <section class="skincare-dashboard" id="dashboard">
       <h2>Your Dashboard</h2>
       <div class="dashboard-container">
         <div class="box skincare-recommendation"></div>
-        <div class="box products-use"></div>
-        <div class="box products-restock"></div>
+        <div class="box products-use">
+          <h3 id="productCounter">0</h3>
+          <p class="counter">Products in <br>your routine</p>
+        </div>
+        <div class="box products-restock">
+          <h3 id="restockCounter">0</h3>
+          <p class="counter">Products to <br>restock</p>
+        </div>
       </div>
     </section>
 
 
-    <section class="skincare-tracker">
+    <section class="skincare-tracker" id="tracker">
+      <div class="tracker-title">
       <h2>Skincare Tracker</h2>
+      <div class="sort-filters">
+        <div class="sort">
+        </div>
+       <div class="filter">
+        <select id="stockStatusFilter">
+          <option value="">Filter by Stock Status</option>
+          <option value="wishlist">Wishlist</option>
+          <option value="in-stock">In Stock</option>
+          <option value="running-out">Running Out</option>
+          <option value="restock">Restock</option>
+          <option value="finished">Finished</option>
+          <option value="not-using">No Longer Using</option>
+        </select>
+        </div> 
+      </div>
+    </div>
       <div class="container">
         
         <div class="filter-container">
@@ -50,8 +81,41 @@
       
           <h4>Routine</h4>
           <div class="options">
+            <div class="options">
+              <!-- Existing routine options -->
+              <label class="routine">All
+                <input type="checkbox" id="allCheckbox" checked>
+                <span class="checkmark"></span>
+              </label>
+              <label class="routine">Morning
+                <input type="checkbox" value="morning">
+                <span class="checkmark"></span>
+              </label>
+              <label class="routine">Night
+                <input type="checkbox" value="night">
+                <span class="checkmark"></span>
+              </label>
+              <label class="routine">Morning & Night
+                <input type="checkbox" value="morning-night">
+                <span class="checkmark"></span>
+              </label>
+              <label class="routine">Once a week
+                <input type="checkbox" value="once-week">
+                <span class="checkmark"></span>
+              </label>
+              <label class="routine">2-3 Times a week
+                <input type="checkbox" value="2-3-times">
+                <span class="checkmark"></span>
+              </label>
+              <label class="routine">Occasional
+                <input type="checkbox" value="occasional">
+                <span class="checkmark"></span>
+              </label>
+          
+            </div>
+            
 
-            <label class = "routine">All
+            <!-- <label class = "routine">All
               <input type="checkbox" checked="checked" id="allCheckbox">
               <span class="checkmark"></span>
             </label>
@@ -83,7 +147,7 @@
             <label class="routine">Occasional
               <input type="checkbox">
               <span class="checkmark"></span>
-            </label>
+            </label> -->
           </div>
 
 
@@ -103,9 +167,6 @@
       </div>
 
         <div class="tracker-container">
-         <!-- <div class="add-product-button">
-            <button id="addProductButton">+ Add Skincare</button>
-          </div>  -->
           <div class="product-list"> 
           <div id="productList" class="product-list">
              <!--  Product cards will be dynamically added here -->
@@ -252,10 +313,16 @@
      
     </section>
 
-    <section class="top-skincare">
+    <section class="top-skincare" id="top-skincare">
       <div class="skincare-container">
         <h2 class="perfect-skincare">Top Tier Skincare</h2>
         <p class="sub-text">The ultimate list of products you've tried & loved</p>
+      </div>
+      <div class="tracker-container">
+        <div class="product-list"> 
+        <div id="topProductList" class="product-list">
+           <!--  Product cards will be dynamically added here -->
+      </div>
       </div>
     </section>
     

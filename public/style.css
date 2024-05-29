@@ -33,6 +33,34 @@ body, html {
     /* overflow: hidden; */
 }
 
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #FFE0E0;
+  font-size: 14px;
+  padding-top: 20px;
+  padding-right: 30px;
+  /* position: fixed; */
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  
+}
+
+.navbar ul li {
+  display: inline;
+  margin-left: 20px;
+  color: #D55D5D; /* Adjust spacing between menu items */
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #D55D5D; /* Adjust link color */
+}
+
 
 .landing-screen {
     position: relative;
@@ -159,6 +187,8 @@ h2.form-title {
     box-shadow: 0 0 13px rgba(50, 26, 26, 0.15); /* Add black shadow */
   }
   
+
+
   .skincare-recommendation {
     flex-basis: calc(50% - 20px);
     
@@ -169,8 +199,28 @@ h2.form-title {
     flex-basis:  calc(20% - 20px); /* Set width for square boxes */
 }
 
+.box.products-use, .box.products-restock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Optional: align text in the center */
+}
+
+#productCounter, #restockCounter {
+  font-size: 70px;
+  margin-top:  20px;
+  color:#1e1e1e
+}
+
+p.counter {
+  margin-top: -70px;
+  font-size: 20px;
+  color:#1e1e1e
+}
 .skincare-tracker {
     margin-top: 150px;
+    
 }
 
 
@@ -331,14 +381,23 @@ padding-left: 20px;
   display: block;
   font-size: 22px;
   margin-bottom: 0px;
-  color: #2d2d2d;
+  color: #303030;
 }
 
 .product-brand {
   display: block;
   font-size: 14px;
   margin-top: 5px;
-  font-family: 'Satoshi-Regular'
+  font-family: 'Satoshi-Regular';
+  color: #a4a4a4;
+
+}
+
+.rating-image {
+  height: 30px;
+  display: block;
+  margin-left: -5px;
+  margin-top: -5px;
 }
 
 .delete-product {
@@ -347,6 +406,7 @@ padding-left: 20px;
   cursor: pointer;
   margin-left: -6px;
   margin-top: 10px;
+  display: block;
 
 
 }
@@ -364,8 +424,8 @@ padding-left: 20px;
 
 .date-info {
   display: block;
-  font-size: 14px;
-  margin-top: 14px;
+  font-size: 13px;
+  margin-top: 8px;
   font-family: 'Satoshi-Regular';
   color: #5d5d5d;
 }
@@ -376,6 +436,7 @@ padding-left: 20px;
   border-radius: 30px;
   display: inline-block;
   margin-top: -5px;
+  margin-bottom: 3px;
   font-size: 12px;
   font-family: 'Satoshi-Regular'
 }
@@ -480,8 +541,8 @@ padding-left: 20px;
   top: 50%;
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
 overflow: hidden;
-  width: 900px;
- height: 640px;
+  width: 950px;
+ height: 670px;
   /* max-width: 1200px; Optional: set a maximum width */
   animation: fadeIn 0.4s;
   border-radius: 30px;
@@ -613,7 +674,7 @@ p.image-text {
 }
 
 .input-row {
-  margin-bottom: 7px;
+  margin-bottom: 9px;
 }
 
 .label-column {
@@ -662,7 +723,7 @@ p.image-text {
 }
 #saveProductButton {
   width: 100px;
-
+  margin-top: 6px;
   margin-bottom: 20px;
   font-family: 'Satoshi-Medium';
   font-size: 15px;
@@ -817,6 +878,63 @@ select {
 }
 
 
+.tracker-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Add this line */
+
+}
+
+.sort-filters {
+  display: flex;
+}
+
+.sort {
+  display: flex;
+  width: 190px;
+  margin: 10px;
+
+}
+
+/* Style for the sort dropdown */
+.sort select {
+  padding: 4px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffecec;
+  color: #333;
+  outline: none;
+}
+
+/* Style for the option items */
+.sort select option {
+  background-color: #ffdbdb;
+  color: #333;
+}
+
+
+.filter {
+  margin: 10px;
+  width: 190px;
+}
+
+
+.filter select {
+  padding: 4px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffecec;
+  color: #333;
+  outline: none;
+}
+
+/* Style for the option items */
+.filter select option {
+  background-color: #ffdbdb;
+  color: #333;
+}
 
 /* Change background color when the input is filled and valid */
 input[type="text"]:valid,
@@ -826,8 +944,7 @@ input[type="date"]:valid,
 textarea:valid,
 #productCategory:valid,
 #stockStatus:valid,
-#routineSelect:valid,
-select:valid {
+#routineSelect:valid{
   background-color: #fdf4f4; /* Change to desired background color */
 }
 
@@ -941,6 +1058,8 @@ label {
     
     .popup-content {
       width: 100%;
+      height: 100%;
+      border-radius: none;
       overflow: auto;
     }
     .tracker-container {
