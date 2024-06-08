@@ -100,7 +100,7 @@ body, html {
  /* The title of the web-page is set to absolute so it is front and center of the
  landing screen and background image, regardless of screen size. I used ChatGPT to understand
  how to center absolute elements to the center of the screen using transform.
- Prompt; "How to center absolute text to middle of screen". (OpenAI, 2024).
+ Prompt; "How to center absolute text to middle of screen". (OpenAI, 2023).
  
  The contrast of the deep reddish-pink text colour was checked agaisnt the light pink
  background using the WebAIM contrast checker.

@@ -129,7 +129,7 @@ const ratingImageMap = { // This constant maps the index of the user's rating (o
 
 // This function adds an event listener for the 'input' event on the product cost field. It manipulates this value by the user by
 // only accepting numerical values, and turns the numerical value input by the user into a string that includes $ for formatting.
-// To learn how to do this, I referred to W3Schools (n.d.). for the startsWith() String method and ChatGPT to clean up the code (OpenAI, 2024)
+// To learn how to do this, I referred to W3Schools (n.d.). for the startsWith() String method and ChatGPT to clean up the code (OpenAI, 2023)
 // W3Schools. (n.d.).JavaScript String startsWith() Method. Retrieved from https://www.w3schools.com/jsref/jsref_startswith.asp
 costInput.addEventListener('input', function() {
   let value = this.value.trim();   // Get the current value of the input and trim any leading/trailing spaces in the value that is unnecessary
@@ -237,7 +237,7 @@ function setFormFields(product) {
 function loadProducts() {
   const products = JSON.parse(localStorage.getItem('products')) || [];
   products.sort((a, b) => new Date(b.datePurchased) - new Date(a.datePurchased)); // I wasn't sure how to sort the products on load by the date purchased with earlier (older) products first, so I
-  // used ChatGPT to create a formula for this. Prompt: "How to sort products by date purchased, with earlier purchased products first". (OpenAI, 2024).
+  // used ChatGPT to create a formula for this. Prompt: "How to sort products by date purchased, with earlier purchased products first". (OpenAI, 2023).
   products.forEach(product => { // iterates over each skincare product in the sorted 'products' array to:
     displayProduct(product); // Calls function to display the product cards in the skincare tracker list on load
     updateProductCounter(); // Calls the function to update the number of skincare products in the product array on load
@@ -338,7 +338,7 @@ saveProductButton.addEventListener('click', function () { // Adds an event liste
 // This function saved the newly added skincare product to local storage, so it remains saved to the user's skinare tracker list for each visit per device
 function saveProduct(product) {
   let products = JSON.parse(localStorage.getItem('products')) || []; // Retrieves the products array from local storage, or initialises it as an empty array if it doesn't exist. I adapted this code form loadProducts function. 
-  const productIndex = products.findIndex(p => p.id === product.id); // This finds the index of the product with the same id as the one being saved. I used ChatGPT to see how an existing product's information can be edited using the unique ID (OpenAI, 2024).
+  const productIndex = products.findIndex(p => p.id === product.id); // This finds the index of the product with the same id as the one being saved. I used ChatGPT to see how an existing product's information can be edited using the unique ID (OpenAI, 2023).
   if (productIndex > -1) {  // If/else statement checks if the product already exists in the array
       products[productIndex] = product;  // If it exists, it updates the existing product with the new data edited by the user
   } else {   // If it doesn't exist, adds the new product to the start of the array (so at first, users can easily see products they just added. It is then refreshed on load or using the sort options)
@@ -369,7 +369,7 @@ function deleteProduct(productId) {
   let products = JSON.parse(localStorage.getItem('products')) || [];  
   products = products.filter(product => product.id !== productId);   // Filters out the product with the matching ID
   localStorage.setItem('products', JSON.stringify(products));   // Updates the local storage with the remaining products
-  const productCard = document.querySelector(`.product-card[data-id="${productId}"]`); // Selects the product card in the DOM with the matching data-id attribute. I used chatGPT for the correct structure of selecting the specific deleted card (OpenAI, 2024).
+  const productCard = document.querySelector(`.product-card[data-id="${productId}"]`); // Selects the product card in the DOM with the matching data-id attribute. I used chatGPT for the correct structure of selecting the specific deleted card (OpenAI, 2023).
   if (productCard) { 
     productCard.remove();   // If the product card exists in the DOM, it is removed from the product card list array
     updateProductCounter(); // Immediately updates the product and restock counter after removing the product card 
@@ -384,7 +384,7 @@ function calculateDaysSincePurchase(purchaseDate) {
   const today = new Date(); // Gets the current date
   const purchase = new Date(purchaseDate); // Converts the purchase date string to a Date object
   const timeDifference = today - purchase;  // Calculates the time difference in milliseconds between today and the purchase date
-  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Converts the time difference from milliseconds to days. I used ChatGPT to see how to do this (OpenAI, 2024) Prompt: "How to convert time from today between date into days".
+  const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Converts the time difference from milliseconds to days. I used ChatGPT to see how to do this (OpenAI, 2023) Prompt: "How to convert time from today between date into days".
   return daysDifference; // Returns the number of days since purchase
 }
 
@@ -407,7 +407,7 @@ function displayProduct(product) {
 
   // Sets the inner HTML of the product card with the product details. This uses innerHTML for custom layout, structure and styling.
   // Referred to W3Schools (n.d.). Source: W3Schools. (n.d.). HTML DOM Element innerHTML Property. Retrieved from https://www.w3schools.com/jsref/prop_html_innerhtml.asp
-  // Asked ChatGPT to clean and format code and remove errors as there were issues with closing tags and quotations (OpenAI, 2024).
+  // Asked ChatGPT to clean and format code and remove errors as there were issues with closing tags and quotations (OpenAI, 2023).
   // This structure follows the same in the wireframe, including relevant information on the product cards for the tracker. The user can see
   // the full dtata when clicking into each card.
   productCard.innerHTML = `
@@ -482,7 +482,7 @@ function displayProductInfo(product) {
 // input by the user.
 productList.addEventListener('click', function(event) {
   const card = event.target.closest('.product-card');   // Finds the closest product card element to the clicked target so the pop-up shows information of the right skincare product.
-  // I wasn't sure how to map the pop-up to the correct card, so I asked ChatGPT for this. Prompt: 'How to open pop-up with information for each product card.' (OpenAI, 2024).
+  // I wasn't sure how to map the pop-up to the correct card, so I asked ChatGPT for this. Prompt: 'How to open pop-up with information for each product card.' (OpenAI, 2023).
   if (!card) return; // If the click is not on a product card, does nothing
   const commentsElement = card.querySelector('.comments');   // Get the comments element within the product card
   const product = {   // Gathers all the relevant product details from the specific skincare product card (that stores all data input by user to track the skincare product)
@@ -549,7 +549,7 @@ function sortByName() {
     // W3Schools (n.d.) and Olawanle (2022) to understand how to do this. 
     // Source: Olwanle, J. (2022, July 29). Sort Alphabetically in JavaScript – How to Order by Name in JS. Retrieved from freeCodeCamp.org website: https://www.freecodecamp.org/news/how-to-sort-alphabetically-in-javascript/
     //  W3Schools. (n.d.). JavaScript Array sort() Method. Retrieved from https://www.w3schools.com/jsref/jsref_sort.asp
-    // I cleaned up any errors in the code using ChatGPT (OpenAI, 2024)
+    // I cleaned up any errors in the code using ChatGPT (OpenAI, 2023)
     const nameA = a.querySelector('.product-name').textContent.trim().toLowerCase();
     const nameB = b.querySelector('.product-name').textContent.trim().toLowerCase();
     if (nameA < nameB) return -1;
@@ -618,7 +618,7 @@ function filterProducts() {
     const rating = parseInt(card.querySelector('.rating-image').alt.match(/\d+/)[0]); // Extracts rating from the alt text (includes the numerical value)
     const cardStockStatus = card.querySelector('.stock-status').classList[1]; // Gets stock status class for the specific status
     // Checks if the card matches the selected routines, ratings, and stock status.
-    // I used ChatGPT to check the matching across these 3 factors (OpenAI, 2024)
+    // I used ChatGPT to check the matching across these 3 factors (OpenAI, 2023)
     const routineMatch = selectedRoutines.length === 0 || selectedRoutines.includes(routine.toLowerCase());
     const ratingMatch = selectedRatings.length === 0 || selectedRatings.includes(rating);
     const stockStatusMatch = !selectedStockStatus || cardStockStatus === selectedStockStatus;
@@ -642,7 +642,7 @@ function filterProducts() {
 // it triggers the filtering function of the product cards array.
 // Firstly, this function iterates over each routine checkbox option to ensure if any other option other that 'all' is checked, then
 // all is unchecked. 'All' is set as the default option to ensure there is no filtering applied to the product card list initially.
-// I used ChatGPT to aid with controlling the 'all' option in regards to the other options (OpenAI, 2024). Prompt: "How to have all other options unchecked if the 'all' option is selected"
+// I used ChatGPT to aid with controlling the 'all' option in regards to the other options (OpenAI, 2023). Prompt: "How to have all other options unchecked if the 'all' option is selected"
 routineCheckboxes.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() { // When any routine checkbox is changed ('change' event), it checks if the changed checkbox is not the "All" checkbox (allRoutineCheckbox) and if it's checked
     if (this !== allRoutineCheckbox && this.checked) {
@@ -756,7 +756,7 @@ productList.style.alignItems = 'flex-start'; // Aligns items to flex-start
 }
 
 // Attaches event listeners for dropdown change events. I asked ChatGPT on what property handles
-// changes in the drop-down selection (OpenAI, 2024).
+// changes in the drop-down selection (OpenAI, 2023).
 handleDropdownChange('ratingDropdown', filterProductsByRating); // Calls handleDropdownChange function for rating dropdown
 handleDropdownChange('routineDropdown', filterProductsByRoutine); // Calls handleDropdownChange function for routine dropdown
 
@@ -779,7 +779,7 @@ anchor.addEventListener('click', function(e) {
 });
 
 // Function for users to scroll to the top of the web-app, especially useful for longer skincare product lists.
-// I used ChatGPT for this function and aapted the scroll duration (OpenAI, 2024). Prompt: "How to scroll to top of page".
+// I used ChatGPT for this function and adapted the scroll duration (OpenAI, 2023). Prompt: "How to scroll to top of page".
 function scrollToTop() {
 // Scroll to top over a duration of 500ms
 const scrollDuration = 500; // Sets duration for scrolling animation
