@@ -1,3 +1,8 @@
+/* First, fonts downloaded from the web are loaded using @font-face to ensure these fonts are visible on 
+any device, even if the fonts are not directly downloaded on those devices. I referenced w3Schools (n.d.)
+to understand how to have specific fonts visible for different devices. 
+W3Schools. (n.d.). CSS @font-face Rule. Retrieved from https://www.w3schools.com/cssref/css3_pr_font-face_rule.php
+*/
 @font-face {
   font-family: 'Satoshi';
   src: url('fonts/OTF/Satoshi-Black.otf') format('opentype'),
@@ -13,21 +18,33 @@
        url('fonts/TTF/Satoshi-Variable.ttf') format('truetype'),
        url('fonts/TTF/Satoshi-VariableItalic.ttf') format('truetype');
 }
-
+/* Satoshi font source:
+Satoshi Font Family—Download Free Font. (n.d.). Retrieved June from https://befonts.com/satoshi-font-family.html
+ */
 @font-face {
   font-family: 'Milk And Honey';
   src: url('fonts/milk_and_honey/Milk And Honey.otf') format('opentype'),
        url('fonts/milk_and_honey/Milk And Honey.ttf') format('truetype');
 }
+ /* Milk And Honey font source:
+Milk And Honey Font | dafont.com. (n.d.). Retrieved from https://www.dafont.com/milk-and-honey.font
+ */
 
+ /* Adding universal styles to web-app */
 body, html {
   margin: 0;
   padding: 0;
   background: #ffffff;
   font-family: 'Satoshi-Medium';
-  /* overflow: hidden; */
 }
 
+ /* Styling the navigation bar to ensure it stretched to the full width of the
+ user's screen, and navigation elements were placed in the top right corner to align
+ with industry practices using "flex end". Because this navigation bar is sticky and
+ fixed, I altered the position and placed the z-infex to 1 (in front of all other
+ elements on the web page). 
+ W3Schools. (n.d.). CSS Layout—The z-index Property. Retrieved from https://www.w3schools.com/css/css_z-index.asp
+  */
 .navbar {
   display: flex;
   width: 100%;
@@ -41,12 +58,14 @@ body, html {
   z-index: 1;
 }
 
+ /* Local styles applied to both navigation elements */
 .navbar ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
+ /* Applying styles for each individual navigation element for distinction */
 .navbar ul li {
   display: inline;
   margin-left: 20px;
@@ -59,11 +78,15 @@ body, html {
   color: #D55D5D;
 }
 
+ /* Landing screen is set to full coverage of the user's screen width and length since it has a custom
+ background image.  */
 .landing-screen {
   position: relative;
   height: 100vh;
 }
-
+ /* Object-fit set to cover so the background image dimensions don't change for the desktop
+ and mobile view. I referred to w3schools to understand how to do this. 
+ W3Schools. (n.d.).  CSS object-fit Property. Retrieved from https://www.w3schools.com/css/css3_object-fit.asp */
 .background-image {
   margin: 0;
   width: 100%;
@@ -74,6 +97,15 @@ body, html {
   left: 0;
 }
 
+ /* The title of the web-page is set to absolute so it is front and center of the
+ landing screen and background image, regardless of screen size. I used ChatGPT to understand
+ how to center absolute elements to the center of the screen using transform.
+ Prompt; "How to center absolute text to middle of screen". (OpenAI, 2024).
+ 
+ The contrast of the deep reddish-pink text colour was checked agaisnt the light pink
+ background using the WebAIM contrast checker.
+ WebAIM: Contrast Checker. (n.d.). Retrieved from https://webaim.org/resources/contrastchecker/
+*/
 .overlay-text {
   position: absolute;
   top: 45%;
@@ -83,6 +115,8 @@ body, html {
   color: #D55D5D;
 }
 
+ /* Styles for title (h1) and subtitle (CTA) of web-app for desktop, for clear
+ visibility. */
 h1 {
   font-size: 75px;
   font-family: 'Milk And Honey';
@@ -97,20 +131,23 @@ h1 {
   margin-top: -33px;
 }
 
+ /* The following code for the animated mouse was adapted from Vijayan (n.d.) on CodePen, but
+ I changed the styles, positioning and animation keyframes to align to my own web-app's branding.
+ Vijayan, D. (n.d.). Pure CSS Animated Mouse Scroll Icon. Retrieved from https://codepen.io/2xsamurai/details/WwmjKQ */
 .animated-mouse {
   position: absolute;
-  top: 72%;
+  top: 72%;  /* Adjusted positioning to be in centre but below overlay (header) text */
   left: 50%;
-  width: 35px;
+  width: 35px; /* Adjusted width and height of mouse */
   height: 57px;
-  background: #D55D5D;
+  background: #D55D5D; /* Adjusted colours ot match web-app brand colours  */
   transform: translate(-50%, -50%);
   border-radius: 30px;
 }
 
 .animated-mouse-pointer {
   position: absolute;
-  width: 10px;
+  width: 10px; /* Adjusted width and height of mouse pointer */
   height: 10px;
   border-radius: 100%;
   background: #ffeeee;
@@ -121,21 +158,24 @@ h1 {
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; /* Changed animation to ease-in-out */
 }
 
 @keyframes mousePointer {
   0% { opacity: 0.5; top: 70%; }
-  100% { opacity: 1; top: 20%; }
+  100% { opacity: 1; top: 20%; }  /* Adjusted positioning of animation */
 }
 
-.skincare-dashboard, .skincare-tracker {
+/* Applying local styles for each main section of the web-app, the skincare dashboard and
+skincare tracker. */
+.skincare-dashboard, .skincare-tracker, .skincare-container {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 1300px; /* I decided to add a max-width instead of using percentages as margins, so that layout would be consistent across different desktop sizes with a fixed margin. */
   padding: 0 20px;
   margin-top: 100px;
 }
 
+/* Title styles for each section */
 h2 {
   color: #E26F6F;
   font-size: 44px;
@@ -150,11 +190,14 @@ h2.form-title {
   margin-bottom: 20px;
 }
 
+/* Using a flex layout for the dashboard desktop version, so all 3 data elements are in one row for
+user's ease of access and viewing. */
 .dashboard-container {
   display: flex;
   flex-wrap: wrap;
 }
 
+/* Universal styles for each box in the dashboard section to avoid clutter. */
 .box {
   flex: 1;
   height: 240px;
@@ -164,12 +207,18 @@ h2.form-title {
   box-shadow: 0 0 13px rgba(50, 26, 26, 0.15);
 }
 
+/* Because the first box in the skincare dashboard is wider than the last 2 (same size) I used
+flex basis to calculate the width depending on screen size for consistency. I referred to
+w3Schools (n.d.). 
+W3Schools. (n.d.). CSS flex-basis property. Retrieved from https://www.w3schools.com/cssref/css3_pr_flex-basis.php */
 .skincare-recommendation {
   flex-basis: calc(50% - 20px);
   display: flex;
   padding: 0px 20px;
 }
 
+/* Styling the image/skincare logo included in the first box, to center it is
+in the center. */
 .skincare-logo {
   justify-content: center;
   display: flex;
@@ -180,6 +229,7 @@ h2.form-title {
   padding: 0px 20px;
 }
 
+/* Styles for text content and link in the skincare quiz dashboard box */
 h5.title {
   font-family: 'Satoshi-Bold';
   font-size: 28px;
@@ -192,10 +242,44 @@ p.skincare-description {
   margin-bottom: 15px;
 }
 
+/* Setting width for image */
+.skincare-image {
+  width: 180px;
+  height: auto;
+}
+
+.skincare-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Size styles for image next to skincare quiz link */
+.mini-symbol {
+  width: 25px;
+  height: 25px;
+  padding-right: 8px;
+}
+
+/* Styling default and hover state for skincare link URL to add affordance for interaction */
+.link-text {
+  font-family: 'Satoshi-Bold';
+  color: #636363;
+  transition: color 0.3s ease;
+}
+
+.link-text:hover {
+  color: #e9b7b7;
+}
+
+/* The next 2 boxes in the skicnare dahsboard are the same sizes tovisually map their purposes
+for the user, as theya re both counters relevant to the user;s skincare tracker. The flex
+basis is calculated similar to the skincare-recommendations box (should add up to less than 90%
+of the skincare dahsboard container to allow for white space). */
 .products-use, .products-restock {
   flex-basis: calc(20% - 20px);
 }
 
+/* Ensuring all content within these div boxes are centred */
 .box.products-use, .box.products-restock {
   display: flex;
   flex-direction: column;
@@ -204,6 +288,7 @@ p.skincare-description {
   text-align: center;
 }
 
+/* Setting a large font size for the skincare product counters for ease of viewing */
 #productCounter, #restockCounter {
   font-size: 70px;
   margin-top: 20px;
@@ -216,72 +301,76 @@ p.counter {
   color: #252525;
 }
 
-.skincare-image {
-  width: 180px;
-  height: auto;
-}
-
-.skincare-link {
-  display: flex;
-  align-items: center;
-}
-
-.mini-symbol {
-  width: 25px;
-  height: 25px;
-  padding-right: 8px;
-}
-
+/* Adding a margin for user's distinction between the 2 sections of the web-app */
 .skincare-tracker {
   margin-top: 150px;
 }
 
-.link-text {
-  font-family: 'Satoshi-Bold';
-  color: #636363;
-  transition: color 0.3s ease;
+/* Displaying the title of the skincare tracker in the same row as the sort drop-down select and stock status filter select using flex */
+.tracker-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* Using space-between so title is on the far left and filters and sort selects on the far right for easier distinction */
 }
 
-.link-text:hover {
-  color: #e9b7b7;
+  /* Ensuring the sort selection and stock status filter is on the same row */
+.sort-filters {
+  display: flex;
 }
 
-
-.skincare-container {
-  margin: 0 auto;
-  max-width: 1300px;
-  padding: 0 20px;
-  margin-top: 100px;
+.sort,
+.filter {
+  display: flex;
+  width: 190px;   /* Consistent sizing for the drop-down selections */
+  margin: 10px;
 }
 
-.perfect-skincare {
-  text-align: center;
+/* Using the select property to style the drop-downs on the tracker */
+.sort select,
+.filter select {
+  padding: 4px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffecec;
+  color: #333;
+  outline: none;
 }
 
-.sub-text {
-  text-align: center;
-  font-weight: 600;
-  color: #E26F6F;
-  font-size: 18px;
-  margin-top: -30px;
+/* Ensuring the resulting option chosen by user has the same styling */
+.sort select option,
+.filter select option {
+  background-color: #ffdbdb;
+  color: #333;
 }
 
+/* Styling heading for checklist filters (for rating and routine) */
 h4 {
   font-weight: 600;
   color: #D55D5D;
   font-size: 18px;
 }
 
+/* Using a row layout in desktop view so that filter and add product button is on the left of the full
+skincare tracker list */
 .container {
   display: flex;
 }
 
+/* Setting the width of the container that includes the add product button, and routine and rating filters so
+that it only takes up a small portion of the available desktop space with the skincare prodyct list being
+the main aspect. */
 .filter-container {
   flex: 1;
   padding-left: 20px;
   max-width: 240px;
 }
 
+/* Styling the checkboxes instead of using the default styles.
+This is so the checklist aligns to the branding of the web-app. 
+I adapted these styles from w3Schools (n.d.). 
+W3Schools. (n.d.). How To Create a Custom Checkbox and Radio Buttons. Retrieved from https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+*/
 .routine, .rating {
   margin-top: 10px;
   font-weight: 500;
@@ -306,6 +395,9 @@ h4 {
   width: 0;
 }
 
+/* Styling the checkmark. I adjusted the colour, size and transiiton between checked and unchecked
+to maintain contrast and visibiity whilst also providing visual feedback for the user's changes.
+*/
 .checkmark {
   position: absolute;
   top: 0;
@@ -317,10 +409,13 @@ h4 {
   transition: background-color 0.3s ease;
 }
 
+/* Adding a hover that changes the background colour of the checks, so users know they are interactive.
+*/
 .routine:hover input ~ .checkmark, .rating input:checked ~ .checkmark {
   background-color: #E8D6D6;
 }
-
+/* Inverting colours when user checks checkbox for clear visibility/feedback of change.
+*/
 .routine input:checked ~ .checkmark, .rating input:checked ~ .checkmark {
   background-color: #E26F6F;
 }
@@ -349,15 +444,18 @@ h4 {
   display: none;
 }
 
+/* Using flex to display product cards in desktop view, so users can view more items at once.
+*/
 .tracker-container {
   display: flex;
   flex-direction: row;
-}
-
-.tracker-container {
   flex: 1;
+
 }
 
+/* Styling the product cards to have consistent widths and heights. I added a slight shadow so that users
+can distinguish the cards from the background. This also adds affordance for interaction.
+*/
 .product-card {
   background-color: #ffffff;
   border-radius: 20px;
@@ -368,14 +466,14 @@ h4 {
   vertical-align: middle;
   box-shadow: 0 0 13px rgba(84, 37, 37, 0.1);
 }
-
+/* Styling the skincare product name as the main title for each card (largest font size)*/
 .product-name {
   display: block;
   font-size: 22px;
   margin-bottom: 0px;
   color: #303030;
 }
-
+/* Styling product brand */
 .product-brand {
   display: block;
   font-size: 14px;
@@ -383,14 +481,14 @@ h4 {
   font-family: 'Satoshi-Regular';
   color: #a4a4a4;
 }
-
+/* Styling image of rating (star rating) */
 .rating-image {
   height: 30px;
   display: block;
   margin-left: -5px;
   margin-top: -5px;
 }
-
+/* Styling the delete button (an image designed on Figma). This is a button so used the pointer cursor. */
 .delete-product {
   background: none;
   border: none;
@@ -400,65 +498,16 @@ h4 {
   display: block;
 }
 
+/* Styling the delete button image so that there is a hover effect on opacity (so user knows it is clickable) */
 .delete-product img {
   width: 36px;
-  background-color: #5d5d5d00;
   transition: opacity 0.3s ease;
 }
 
 .delete-product:hover img {
   opacity: 0.5;
 }
-
-.date-info {
-  display: block;
-  font-size: 13px;
-  margin-top: 8px;
-  font-family: 'Satoshi-Regular';
-  color: #5d5d5d;
-}
-
-.date-popup,
-.comments-popup,
-.routine-popup,
-#productCategory-text {
-  display: block;
-  font-size: 16px;
-  margin-top: 4px;
-  margin-bottom: -10px;
-  font-family: 'Satoshi-Regular';
-  color: #5d5d5d;
-}
-
-#productCategory-text {
-  margin-top: 15px;
-}
-
-.comments-popup {
-  margin-top: 30px;
-  color: #2c2c2c;
-  font-family: 'Satoshi-Medium';
-}
-
-.comments-popup {
-  font-size: 18px;
-}
-
-.cost-popup {
-  color: #3e3e3e;
-}
-
-.product-link a {
-  color: #2b2b2b;
-  font-family: 'Satoshi-Regular';
-  transition: color 0.3s ease;
-}
-
-.product-link a:hover {
-  text-decoration: underline;
-  color: #d55d5d;
-}
-
+/* Styling the stock-status div so it appears as a tag on the product card */
 .stock-status {
   padding: 5px 10px;
   border-radius: 30px;
@@ -469,6 +518,7 @@ h4 {
   font-family: 'Satoshi-Regular';
 }
 
+/* This class is for the stock status tag on the product information pop-up, when the user clicks into an existing product. */
 .common-stock-status {
   padding: 5px 10px;
   border-radius: 5px;
@@ -477,6 +527,8 @@ h4 {
   display: inline-block;
 }
 
+/* The following adds varying background colours and text colours to the stock status tags, which is different for each option
+for easier categorisation. I ensured there is high contrast for accessibility. */
 .stock-status.wishlist {
   background-color: #ffe8f9;
   color: #8a486e;
@@ -507,11 +559,13 @@ h4 {
   color: #564567;
 }
 
+/* Styling the rate image on the card */
 .rate {
   display: block;
   margin-top: 5px;
 }
 
+/* Styling the add product button on the top right of the tracker for clear visibility without obscuring from the product list. */
 #addProductButton {
   display: inline-block;
   background-color: #e26f6f;
@@ -528,7 +582,7 @@ h4 {
   font-family: 'Satoshi-Medium';
   font-size: 18px;
   font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Added a hover transiiton for feedback. */
 }
 
 #addProductButton:hover {
@@ -536,45 +590,34 @@ h4 {
   color: #e26f6f;
 }
 
-.popup {
+ /* Styling the pop-up modal window when the user adds a new product and views an existing product information, for consistency. */
+.popup, .popup-card {
   display: none;
-  position: fixed;
-  z-index: 1;
+  position: fixed;  /* Made the position fixed to avoid overflow (desktop only) */
+  z-index: 1;  /* Set z-index so the pop-up is in front of all other elements on the web-page */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  overflow: none;  /* No overflow so user can't scroll on web-page behind pop-up, as it has their central attention */
+  transition: opacity 0.3s ease;  /* Transition for when the pop-upappears on the user's screen to enhance the experience */
   border-radius: 20px;
 }
 
-.popup-card {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 20px;
-}
-
+/* Adding a background colour behind the modal window to centre the user's attention to the pop-up, and for easier distinction */
 #productPopUp,
 #productInfoPopup {
   background-color: rgba(54, 30, 30, 0.6);
   border-radius: 0px;
 }
-
+/* The following code is to style the form */
 .popup-form .form-title {
   font-size: 55px;
   margin-top: 30px;
 }
-
+/* The pop-up window is made absolute on the user's screen given it should remain in the middle regardless of where the user has scrolled
+to on the web app. Because of this, I used and adapted the CSS styles for the overlay-text to the window to ensure it was centred on the
+user's screen for desktop view. */
 .popup-content,
 .product-info {
   background-color: #ffffff;
@@ -583,21 +626,34 @@ h4 {
   top: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  width: 950px;
+  width: 950px; /* Consistent width and height for all desktop screen sizes */
   height: 670px;
-  animation: fadeIn 0.4s;
+  animation: fadeIn 0.4s; /* Animation for when the pop-up appears to enhance the user experience. */
   border-radius: 30px;
 }
 
+/* I referred to Juviler (2024) on how to add a fade-in animation for when the pop-up appears.
+Juviler, J. (2024, March 4). How to Add a CSS Fade-in Transition Animation to Text, Images, Scroll & Hover. Retrieved from https://blog.hubspot.com/website/css-fade-in
+ */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Styling the custom close button */
 #close-button,
 #close-button2 {
   position: absolute;
-  left: calc(100% - 70px);
+  left: calc(100% - 70px); /* Adding an adaptable margin */
   top: 70px;
   text-align: center;
   line-height: 36px;
   padding-right: 40px;
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;  /* Adding a smooth transition as the size increases and opacity decreases on hover for interaction */
 }
 
 .close {
@@ -610,27 +666,18 @@ h4 {
   transform: scale(1.05);
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.popup.active {
-  display: block;
-  opacity: 1;
-}
-
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
   cursor: pointer;
 }
 
+/* Styling the pop-up when it is active */
+.popup.active {
+  display: block;
+}
+
+/* Setting display as flex for the desktop view, as the input form has 2 columns (1st for the title, image and 
+ranking, and second column for the rest of the user's data input about the product).  */
 .popup-form {
   display: flex;
   flex-direction: column;
@@ -644,6 +691,7 @@ h4 {
   margin-right: 60px;
 }
 
+/* Ensuring display is flex for certain containers with input fields to save space */
 .form-column {
   flex: 1;
   display: flex;
@@ -655,6 +703,7 @@ h4 {
   margin-right: 20px;
 }
 
+/* Styling sub-headers for each form section to avoid overwhelming users with input fields */
 h4.form-header {
   margin-bottom: 12px;
 }
@@ -664,6 +713,7 @@ h4.ranking-header {
   margin-bottom: 0px;
 }
 
+/* Styling the placeholder text so it is visible but not in high contrast, prompting user to fill in relevant data */
 ::placeholder {
   color: #cab3b3;
   font-family: 'Satoshi-Regular';
@@ -671,43 +721,28 @@ h4.ranking-header {
   padding-left: 0px;
 }
 
-.image-placeholder {
-  display: flex;
-  margin-right: 30px;
-  height: 280px;
-  background-color: #ffffff;
-  border-radius: 13px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+/* Setting the height and width of the image for when the user adds a new product */
 
+.add-image {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 20px;
+}
 .product-image {
   height: 200px;
   width: 280px;
   object-fit: cover;
+  border-radius: 20px;
 }
 
+/* Setting the height and width of the product image for users viewing existing product cards */
 .product-image2 {
   width: 500px;
   object-fit: cover;
 }
 
-.row1 {
-  align-items: center;
-  justify-content: center;
-  vertical-align: center;
-  margin-top: 150px;
-}
-
-p.image-text {
-  margin: auto;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: italic;
-  color: #c4a0a0;
-}
-
+/* Styling the labels on top of input fields */
 .input-row label {
   display: block;
   margin-bottom: 5px;
@@ -715,14 +750,9 @@ p.image-text {
   font-size: 14px;
 }
 
+/* Adding a margin for white space and easier distinction to avoid clutter for each form element*/
 .input-row {
   margin-bottom: 9px;
-}
-
-.label-column {
-  width: 50%;
-  padding-right: 10px;
-  box-sizing: border-box;
 }
 
 .form-row {
@@ -735,16 +765,6 @@ p.image-text {
   margin-bottom: 0px;
 }
 
-.input-row input,
-.input-row select,
-.input-row textarea {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 12px;
-}
-
 .input-row textarea {
   resize: vertical;
 }
@@ -754,45 +774,9 @@ p.image-text {
   font-size: 18px;
 }
 
-.save-product {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#saveProductButton,
-#editProductButton {
-  width: 100px;
-  margin-top: 6px;
-  margin-bottom: 20px;
-  font-family: 'Satoshi-Medium';
-  font-size: 15px;
-  border-radius: 20px;
-  border: none;
-  padding: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #d55d5d;
-  color: #fffcf6;
-  font-weight: 500;
-  transition: opacity 0.4s;
-}
-
-#editProductButton {
-  margin-right: 50px;
-  margin-top: 50px;
-}
-
-#saveProductButton:hover,
-#editProductButton:hover {
-  opacity: 0.7;
-}
-
-
-.popup-image {
-  margin-top: -20px;
-  width: 100%;
-}
-
+/* Adding a hover effect to the star rating input in the pop-up form. This code was
+adapted from  Blixt on Codepen (n.d.), 
+Five star rating field with animated hover effect. (2015, December 20). Retrieved from https://codepen.io/blixt/details/QyNXEp */
 .rate i,
 .rate i:hover ~ i {
   color: #f5c1c1;
@@ -801,6 +785,9 @@ p.image-text {
   transition-delay: 0;
 }
 
+/* The following uses the 'i' class for each star rating in HTML to make the hover effect apply for each star at a
+   time. Limiting the selector to when a specific star (.rate) is hovered removes the effect without delaying when the cursor leaves
+   the .rate element */
 .rate:hover i {
   color: #e26f6f;
   text-shadow: #ffd9d9 0 0 20px;
@@ -830,6 +817,8 @@ p.image-text {
   letter-spacing: 6px;
 }
 
+/* Styling the input fields (for text, URL, date and drop-down selects for
+consistency. */
 input[type="text"],
 input[type="url"],
 input[type="date"],
@@ -840,48 +829,14 @@ textarea,
 select {
   width: 100%;
   padding: 6px;
-  background-color: #fdf4f4;
+  background-color: #fdf4f4; /* Background colour of input filed is made more pink from white background for distinction */
   border: none;
-  border-radius: 30px;
+  border-radius: 30px;  /* Borders are fully round to match the softer branding of the web-app */
   box-sizing: border-box;
   font-size: 14px;
   font-family: 'Satoshi-Regular';
   color: #202020;
-  margin-bottom: 3px;
-}
-
-.tracker-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.sort-filters {
-  display: flex;
-}
-
-.sort,
-.filter {
-  display: flex;
-  width: 190px;
-  margin: 10px;
-}
-
-.sort select,
-.filter select {
-  padding: 4px;
-  font-size: 14px;
-  border: none;
-  border-radius: 20px;
-  background-color: #ffecec;
-  color: #333;
-  outline: none;
-}
-
-.sort select option,
-.filter select option {
-  background-color: #ffdbdb;
-  color: #333;
+  margin-bottom: 3px; /* Slight margin to differenciate between different label and input field groups */
 }
 
 input[type="text"]:valid,
@@ -895,6 +850,8 @@ textarea:valid,
   background-color: #fdf4f4;
 }
 
+/* Adding a hover to the input field so users know these elements are interactive, building affordance
+for the user's input */
 input[type="text"]:hover,
 input[type="url"]:hover,
 input[type="date"]:hover,
@@ -904,7 +861,7 @@ textarea:hover,
 #routineSelect:hover,
 #comments:hover,
 select:hover {
-  border: 1.5px solid #ffb6b6;
+  border: 1.5px solid #ffb6b6; /* Adds a visible pink outline on hover */
 }
 
 input:-webkit-autofill,
@@ -941,50 +898,55 @@ label {
   display: block;
 }
 
-.product-image {
+/* Styling the button to save and add a new skincare product to the bottom right corner of the pop-up form (once the user is finished with adding data) */
+.save-product {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Styling the add/save product button and edit button, with consistent styling/ The default is a dark background with light text so users know
+these are primary CTAs */
+#saveProductButton,
+#editProductButton {
+  width: 100px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  font-family: 'Satoshi-Medium';
+  font-size: 15px;
   border-radius: 20px;
+  border: none;
+  padding: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #d55d5d;
+  color: #fffcf6;
+  font-weight: 500;
+  transition: opacity 0.4s;
 }
 
-.popup-card {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
+#editProductButton {
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+#saveProductButton:hover,
+#editProductButton:hover {
+  opacity: 0.7;
+}
+
+.popup-image {
+  margin-top: -20px;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.popupcard-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 500px;
-  text-align: center;
-}
+/* Styling information on the pop-up when users click into the existing product. This is similar to the card but
+has more information and a different layout for skincare product data. */
 
-.popup-card .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.popup-card .close:hover,
-.popup-card .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
+/* Name is still the largest font */
 
 .popup-container {
   display: flex;
 }
-
 #productNameText {
   font-size: 32px;
   font-family: 'Satoshi-Medium';
@@ -997,11 +959,68 @@ label {
   font-family: 'Satoshi-Regular';
 }
 
+.date-info {
+  display: block;
+  font-size: 13px;
+  margin-top: 8px;
+  font-family: 'Satoshi-Regular';
+  color: #5d5d5d;
+}
+
+/* Consistent styles for the following data elements */
+.date-popup,
+.comments-popup,
+.routine-popup,
+#productCategory-text {
+  display: block;
+  font-size: 16px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  font-family: 'Satoshi-Regular';
+  color: #5d5d5d;
+}
+
+#productCategory-text {
+  margin-top: 15px;
+}
+
+/* Specific styles for specific data elements  */
+.comments-popup {
+  margin-top: 30px;
+  color: #2c2c2c;
+  font-family: 'Satoshi-Medium';
+  font-size: 18px;
+
+}
+.cost-popup {
+  color: #3e3e3e;
+}
+
+/* Adding a hover transition for URLs so users know they are interactive  */
+.product-link a {
+  color: #2b2b2b;
+  font-family: 'Satoshi-Regular';
+  transition: color 0.3s ease;
+}
+
+.product-link a:hover {
+  text-decoration: underline;
+  color: #d55d5d;
+}
+/* Setting the height and width of the product image for users viewing existing product cards */
+.row1 {
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+  margin-top: 150px;
+}
+
 .row2 {
   margin-top: 90px;
   margin-left: -50px;
 }
 
+/* Styling the scroll to top button, ensuring it is in the centre  */
 .scroll-button {
   display: flex;
   justify-content: center;
@@ -1016,13 +1035,15 @@ label {
   transition: transform 0.3s;
   width: 50px;
   height: auto;
-  transition: scale 0.3s, opacity 0.2s ease-in-out;
+  transition: scale 0.3s, opacity 0.2s ease-in-out; /* Adding a hover transition to facilitate interaction */
 }
 
 #scrollToTop:hover {
   opacity: 0.7;
   scale: 1.1;
 }
+
+/* Styling the footer */
 footer {
   background: #e26f6f;
   padding: 30px 0;
@@ -1039,12 +1060,15 @@ footer {
   padding-left: 40px;
 }
 
-
+/* Applying and refining styles for the mobile view. I adapted the use of media screen from
+w3Schools (n.d.).
+W3Schools. (n.d.). Responsive Web Design Media Queries. Retrieved from https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+ */
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 40px;
     padding: 0;
-  }
+  } /* Reducing font size of web-app title for mobile view  */
 
   .subtitle {
     font-size: 16px;
@@ -1052,12 +1076,8 @@ footer {
     margin-top: -8%;
   }
 
-  .tracker-title {
-    display: block;
-  }
-
-  .sort-filters {
-    display: block;
+  .tracker-title, .sort-filters  {
+    display: block; /* Ensuring the tracker and sort and filter options are in their own row to avoid clutter and increase visibility.  */
   }
 
   .sort,
@@ -1067,6 +1087,9 @@ footer {
     padding-left: 10px;
   }
 
+    /* Adjusting flex basis of skincare dahsboard to ensure
+  first box is in its own row and following 2 boxes are in
+  the same row  */
   .skincare-recommendation {
     flex-basis: 100%;
     height: 460px;
@@ -1074,24 +1097,23 @@ footer {
     padding-top: 20px;
   }
 
-  #productCounter,
-  #restockCounter {
-    font-size: 60px;
-    margin-top: 10px;
-    color: #252525;
-  }
-
-  p.counter {
-    margin-top: -70px;
-    font-size: 16px;
-    color: #252525;
-  }
-
   .products-use,
   .products-restock {
     flex-basis: calc(40% - 10px);
     height: 150px;
     margin: 16px;
+  }
+
+  /* Adjusting font size of counters  */
+  #productCounter,
+  #restockCounter {
+    font-size: 60px;
+    margin-top: 10px;
+  }
+
+  p.counter {
+    margin-top: -70px;
+    font-size: 16px;
   }
 
   .custom-select {
@@ -1104,10 +1126,12 @@ footer {
     display: block;
   }
 
+   /* Hiding checkbox filters and displaying the drop-down select filters instead  */
   .routine,.rating {
     display: none;
   }
 
+   /* Adjusting flex so all form elements are vertical in mobile view  */
   .form-container {
     flex-direction: column;
     margin-left: 20px;
@@ -1130,6 +1154,8 @@ footer {
     overflow: auto;
   }
 
+  /* Using overflow-x so that users can swipe/scroll through product list instead of
+  scrolling down, taking up less space. */
   .tracker-container {
     display: block;
     overflow-x: auto;
@@ -1151,14 +1177,21 @@ footer {
     flex: 0 0 auto;
     width: auto;
     margin-right: 10px;
+    width: 400px;
   }
 
+  .add-image {
+    height: 300px;
+    width: 450px;
+  }
+  /* Adjusting image dimensions for mobile view */
   .product-image {
     width: 100%;
     height: 300px;
     margin-top: 20px;
   }
 
+    /* All product cards in one row */
   .product-list {
     display: flex;
     flex-direction: row;
@@ -1168,6 +1201,7 @@ footer {
     display: block;
   }
 
+  /* Adjusting styles for the product information pop-up */
   .product-info {
     width: 100%;
     height: 100%;

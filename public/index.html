@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <!-- Including a fixed navigation at the top of the user's screen to navigate to the dashboard or skincare tracker at any time
+    for both desktop and mobile. This is for accessibility and efficiency, especially for users who have a larger skincare product
+    list.  -->
     <nav class="navbar">
       <ul>
         <li><a href="#dashboard">Dashboard</a></li>
@@ -17,34 +20,54 @@
       </ul>
     </nav>
 
+    <!-- Landing page structure using semantic HTML 'header' element-->
     <header>
       <div class="landing-screen">
+        <!--Setting background image of landing screen to pink wavy image.-->
         <img
           src="assets/backdropp.png"
           alt="Pink Background"
-          class="Pink background with waves."
+          class="background-image"
         />
+        <!--Clear title for unfamiliar users to quickly grasp purpose of tracker. It
+         is titled overlay-text as the text overlays the background image. -->
         <div class="overlay-text">
           <h1>
             my road to <br />
             good skin
           </h1>
+          <!-- Call to action -->
           <h3 class="subtitle">
             Track skincare products to monitor and <br />
             perfect your routines.
           </h3>
         </div>
+        <!-- Including a mouse animation to provide visual mapping and guidance for
+        users to scroll down to begin tracking as a form of help and documentation. -->
         <div class="animated-mouse">
           <div class="animated-mouse-pointer"></div>
         </div>
       </div>
     </header>
 
+    <!-- Main section for the tracker web app: dashboard, skincare tracker and product list.-->
     <main>
+      <!-- The skincare dashboard section includes 3 information sources (made of individual div boxes) 
+      relevant to the skincare's tracker/guidance for users, and counters for the number of products in 
+      the user's skincare tracker list, and how many products they need to restock (products that have 
+      run out/close to running out so they  know what they should prioritise for their next purchase.)-->
       <section class="skincare-dashboard" id="dashboard">
         <h2>Your Dashboard</h2>
+        <!-- All 3 'boxes' for the dashboard content are contained within one container for layout
+        purposes, ensuring all are in one row that can be manipulated for responsiveness.-->
         <div class="dashboard-container">
+          <!-- The first div provides some context to the purpose of the web-app, as well as
+          linking the user to a quiz for them to better understand their skin and skin needs,
+          and in-turn be recommended suitable products from an external source. This would get
+          users started with products to begin tracking in their skincare tracker, and more
+           accurate than recommending products simply from what the user is already using. -->
           <div class="box skincare-recommendation">
+            <!-- Skincare logo I designed using Figma.-->
             <div class="skincare-logo">
               <img
                 class="skincare-image"
@@ -52,6 +75,7 @@
                 alt="Shape with skincare symbol in centre."
               />
             </div>
+            <!-- Container includes text for first box -->
             <div class="box-content">
               <h5 class="title">What Skincare Should I Use?</h5>
               <p class="skincare-description">
@@ -59,12 +83,20 @@
                 perfect skincare for your needs! View the quiz below to find
                 which products and ingredients work well for your skin.
               </p>
+              <!-- Including an image next to link for user's visibility to
+              CTA -->
               <div class="skincare-link">
+                <!-- Designed myself on Figma -->
                 <img
                   class="mini-symbol"
                   src="assets/skincare-symbol2.png"
                   alt="Pink circular shape."
                 />
+                <!-- I found this universal Skincare Quiz that will recommend
+                the user products based on their skin type and specific needs,
+                to begin tracking potential products in their skincare tracker
+                (i.e. for the wishlist). -->
+                <!-- Opens an external link in a new tab -->
                 <a
                   href="https://www.sephora.com/beauty/skin-care-quiz"
                   class="link-text"
@@ -74,10 +106,16 @@
               </div>
             </div>
           </div>
+          <!-- This div box updates a counter of the number of products in the user's
+        skincare tracker, so they can efficiently learn how many products they
+        are using/want to use. -->
           <div class="box products-use">
+            <!-- Highlighting the number for visibility -->
             <h3 id="productCounter">0</h3>
             <p class="counter">Products in <br />your routine</p>
           </div>
+          <!-- This div box updates a counter of the number of products the user
+            needs to restock in their skincare tracker. -->
           <div class="box products-restock">
             <h3 id="restockCounter">0</h3>
             <p class="counter">Products to <br />restock</p>
@@ -85,14 +123,27 @@
         </div>
       </section>
 
+      <!-- Section under dashboard for user to track skincare products:
+      add and rate new products, view or edit existing products, or delete
+      products. -->
       <section class="skincare-tracker" id="tracker">
+        <!-- In the same row as the title, users can view 2 drop-down
+        selections: to sort the skincare product list or filter by
+        stock status. -->
         <div class="tracker-title">
           <h2>Skincare Tracker</h2>
           <div class="sort-filters">
             <div class="sort"></div>
+            <!-- Creating the filtring values for the stock status filter.
+            I used the help of w3Schools to understand how to create drop-down
+          selection options (w3Schools, n.d.) 
+          W3Schools. (n.d.). HTML select tag. Retrieved from https://www.w3schools.com/tags/tag_select.asp  -->
             <div class="filter">
+              <!-- Each option aligns to options provided to user in the input form
+              when they first add a new product.  -->
               <select id="stockStatusFilter">
                 <option value="">Filter by Stock Status</option>
+                <!-- CTA: Default option for no selection (selects all) -->
                 <option value="wishlist">Wishlist</option>
                 <option value="in-stock">In Stock</option>
                 <option value="running-out">Running Out</option>
@@ -103,16 +154,31 @@
             </div>
           </div>
         </div>
+        <!-- This container includes the button for users to add a new product to their tracker,
+        located in the top right corner with high visibility for ease of access. It also includes
+        the checkbox filters (filtering by product routines and/or rating) -->
         <div class="container">
           <div class="filter-container">
             <div class="add-product-button">
+              <!-- Using a button to offer affordance for the user. 
+              I referenced w3Schools (n.d.) on how to create buttons. 
+              W3Schools. (n.d.). HTML button tag. Retrieved from https://www.w3schools.com/tags/tag_button.asp -->
               <button id="addProductButton">+ Add Skincare</button>
             </div>
+            <!-- I decided to use a checkbox for the routine and rating instead of a drop-down select 
+              similar to the stock status filter, as user testing validated that users are more likely 
+              to select more than one option for these filter options compared to other categories. Users 
+              can filter using the checkbox simultaneousely. The options align to the different routine each 
+              product belongs in when the user first adds a product so that they can view their skincare routine 
+              for specific routines (i.e. products only used at night, at day, etc) for flexible viewing.
+              W3Schools. (n.d.). HTML input type="checkbox". Retrieved from https://www.w3schools.com/tags/att_input_type_checkbox.asp  -->
 
             <h4>Routine</h4>
+            <!-- Title so users know purpose of filter. -->
             <div class="options">
               <label class="routine"
                 >All
+                <!-- Default checked option (no filtering applied, shows all product cards.) -->
                 <input type="checkbox" id="allCheckbox" checked />
                 <span class="checkmark"></span>
               </label>
@@ -147,6 +213,10 @@
                 <span class="checkmark"></span>
               </label>
             </div>
+            <!-- For mobile view, users can filter using a drop-down
+            selection instead to avoid taking up screen space. This
+            has limitations as users can only select one option. I
+            adapted the following code from the stock status filter. -->
             <select class="custom-select" id="routineDropdown">
               <option value="all">All</option>
               <option value="morning">Morning</option>
@@ -157,6 +227,9 @@
               <option value="occasional">Occasional</option>
             </select>
 
+            <!-- Adapting the routine filtering checkboxes to the rating. The
+              value is set to the index used when the user rates the product
+              by stars using indexes (5 = 5 stars, etc). -->
             <h4>Rating</h4>
             <div class="options">
               <label class="rating"
@@ -195,6 +268,7 @@
                 <span class="checkmark"></span>
               </label>
             </div>
+            <!-- Drop-down select for mobile view filtering only. -->
             <select class="custom-select" id="ratingDropdown">
               <option value="all">All</option>
               <option value="5">5 Stars</option>
@@ -206,34 +280,59 @@
             </select>
           </div>
 
+          <!-- On desktop view, users can view the list of products in cards besides
+        the filter container, and in mobile, below to leverage screen size.  -->
           <div class="tracker-container">
             <div class="product-list">
               <div id="productList" class="product-list">
-                <!-- Product cards will be dynamically added here -->
+                <!-- Product cards will be dynamically added here. This is
+                controlled by JavaScript. -->
               </div>
             </div>
           </div>
 
+          <!-- Structure for the pop-up modal window that pops up when the user selects
+          the "add product" button. This pop-up includes the form with relevant data fields
+          for the user to save and track for each skincare product.  -->
           <div id="productPopUp" class="popup">
+            <!-- Includes an ID so its behaviour (opening/closing/etc) can be controlled by JS depending on user's actions.  -->
             <div class="popup-content">
               <div class="scroll-button">
                 <img src="assets/popup-image.png" class="popup-image" />
+                <!-- Adding a wave decor image to the top for consistent branding with the landing image, designed on Figma. As this
+                is for decor purposes, no alt text is included. -->
               </div>
               <div class="popup-form">
+                <!-- Container that includes main product input form content. -->
                 <div id="close-button">
+                  <!-- Usng a custom close button image deisgned on Figma as the button to close the pop-up. -->
                   <img src="assets/close-button.png" class="close" />
                 </div>
+
+                <!-- Container for skincare product form elements. It includes 2 divs for each column (left and right) for desktop
+                view. Thsi is collapsed into rows for mobile view. -->
                 <div class="form-container">
                   <div class="form-column">
+                    <!-- In desktop view, everything in this column will be on the left/viewed first in mobile -->
                     <h2 class="form-title">New <br />Skincare</h2>
+                    <!-- Including the default product image when the user first opens the form (no input). I attached an ID and class
+                    to this so that it can be manipulated depending on the user's input using JavaScript. I used ChatGPT to help with
+                    this. Prompt: "how to add an image that can change based on user's input for product name" (OpenAI, 2024). -->
                     <div class="image-placeholder">
                       <img
                         id="productImage"
-                        class="product-image"
+                        class="add-image"
                         src="assets/placeholder.png"
-                        alt="Image Placeholder"
+                        alt="Pink Box"
                       />
                     </div>
+
+                    <!-- Including the rating below the image. This was originally with the rest of the input elements on the right
+                    of the form but moved for spacing and visibility to avoid clutter. 
+                     The rating for the form input uses stars that represent a number based off their placement, i.e. the 3rd
+                    star in the span class list represents 3 stars out of 5. I adapted this code from Blixt on Codepen (n.d.), but
+                    added 'data-rating' for clearer semantics of the number's purposes.
+                    Five star rating field with animated hover effect. (2015, December 20). Retrieved from https://codepen.io/blixt/details/QyNXEp -->
                     <h4 class="ranking-header">Ranking</h4>
                     <span class="rate">
                       <i data-rating="1">★</i>
@@ -243,9 +342,16 @@
                       <i data-rating="5">★</i>
                     </span>
                   </div>
+
+                  <!-- The following container for the left of the input form pop-up (in desktop) includes
+                  the rest of the data input by the user to track skincare products. -->
+                  <!-- I adapted the input form HTML layout from the tutorial activity from Week 4.
+                    Week 4 Content: Advanced Web Design. (n.d.). Retrieved June 6, 2024, from https://canvas.sydney.edu.au/courses/56508/pages/week-4-content?module_item_id=2244482
+                   -->
                   <div class="form-column input">
                     <h4 class="form-header">Product Details</h4>
                     <div class="input-row">
+                      <!-- Text field for product name (main label for skincare product card) -->
                       <label for="productName">Product Name</label>
                       <input
                         type="text"
@@ -253,8 +359,11 @@
                         class="input-text"
                         placeholder="Green Tea Cleanser"
                       />
+                      <!-- Including placeholders for users to better understand the purpose of each data label and what they should include. -->
                     </div>
                     <div class="input-row">
+                      <!-- Text field for brand name of product for search reference (for the purpose of the tracker, this should be autofilled for
+                        depending on the product name used, if using test values) -->
                       <label for="productBrand">Brand</label>
                       <input
                         type="text"
@@ -264,6 +373,7 @@
                       />
                     </div>
                     <div class="input-row">
+                      <!-- URL field for product link. This is especially useful for wishlist items or reference if user needs to restock items. -->
                       <label for="productLink">Product Link</label>
                       <input
                         type="url"
@@ -273,9 +383,15 @@
                       />
                     </div>
                     <div class="input-row">
+                      <!-- Drop-down select for which routine the skincare product will be used for, so the user knows
+                      how often to use it. Referenced w3Schools (n.d.). for select values structure.
+                      W3Schools. (n.d.). HTML select tag. Retrieved from https://www.w3schools.com/tags/tag_select.asp  -->
                       <label for="routineSelect">Routine</label>
                       <select id="routineSelect">
                         <option value="" selected disabled>Select</option>
+                        <!-- I wasn't sure how to have a default/unselected value for the drop-down
+                        selections, so I used ChatGPT to see how to have a disabled default selection. Prompt: "How to have no options selected for
+                        drop-down." It led me to using the select disabled property (OpenAI, 2024)-->
                         <option value="morning">Morning</option>
                         <option value="night">Night</option>
                         <option value="morning-night">Morning and Night</option>
@@ -286,6 +402,9 @@
                     </div>
                     <div class="form-row">
                       <div class="input-row new-row">
+                        <!-- Adding an extra div class so that stock status and product category can be in the same
+                        row to save space. These are optional inputs by the user, so their own row is not prioritised. -->
+                        <!-- Drop down select for the stock status, adapted from selection code above. -->
                         <label for="stockStatus">Stock Status</label>
                         <select id="stockStatus">
                           <option value="" selected disabled>Select</option>
@@ -298,6 +417,8 @@
                         </select>
                       </div>
                       <div class="input-row">
+                        <!-- Drop down select for product category (type of skincare product). I asked ChatGPT to re-order this list in alphabetical order for ease
+                        of access for users. This is another optional category. (OpenAI, 2024) -->
                         <label for="productCategory">Product Category</label>
                         <select id="productCategory">
                           <option value="" selected disabled>Select</option>
@@ -317,7 +438,10 @@
                       </div>
                     </div>
                     <div class="form-row">
+                      <!-- Text field for cost, but this field only takes number values and adds
+                      it to a string with $ (controlled in JS). -->
                       <div class="input-row new-row">
+                        <!-- Cost and date purchased are also in the same row, as these input values are assumed to be short. -->
                         <label for="cost">Cost:</label>
                         <input
                           type="text"
@@ -327,6 +451,8 @@
                         />
                       </div>
                       <div class="input-row">
+                        <!-- Date of purchase input. This uses the javascript calendar picker to write a date in
+                        full format DD/MM/YY.  -->
                         <label for="datePurchased">Date Purchased</label>
                         <input
                           type="date"
@@ -336,6 +462,8 @@
                       </div>
                     </div>
                     <div class="input-row">
+                      <!-- Text field for users to add comments to justify their rating of the product, or anything significant to
+                      note for future reference.  -->
                       <label for="comments">Comments</label>
                       <textarea
                         id="comments"
@@ -343,6 +471,7 @@
                         placeholder="Texture, feeling, effectiveness, quality, long-lasting..."
                       ></textarea>
                     </div>
+                    <!-- Button for users to add the product to their full skincare product tracker list. -->
                     <div class="save-product">
                       <button id="saveProductButton">Add</button>
                     </div>
@@ -352,11 +481,18 @@
             </div>
           </div>
 
+          <!-- The following code is the structure for the pop-up that the user views when they click into an existing
+      skincare product card in their trcker list; to be able to view all the related data for existing products they
+      tracked or to edit any information. -->
           <div id="productInfoPopup" class="popup">
+            <!-- Adding the same class to this pop-up for consistent styling of modal window.  -->
             <div class="product-info">
               <div class="scroll-button">
                 <img src="assets/popup-image.png" class="popup-image" />
+                <!-- Adding the same wavy pink decor image tp the pop-up. -->
               </div>
+              <!-- Similar to the product input form pop-up, the product information pop-up is also split in 2 columns
+              (for desktop view) with the product image on the left. -->
               <div class="popup-container">
                 <div class="row1">
                   <div class="image-placeholder">
@@ -366,8 +502,10 @@
                       src="assets/product-images/placeholder-skincare.png"
                       alt="Image Placeholder"
                     />
+                    <!-- Image of the pop-up will update based on the locally saved image file for each card -->
                   </div>
                 </div>
+                <!-- Right side (desktop view) of information pop-up will include all data input by the user from when they first added the product. -->
                 <div class="row2">
                   <div id="close-button2">
                     <img
@@ -376,6 +514,8 @@
                       alt="Close"
                     />
                   </div>
+                  <!-- Text that recalls locally stored data for each product added by user, using iDs. This is organised similarly
+                to the wireframe for simplicity and accessibility for the user. -->
                   <p><span id="productNameText"></span></p>
                   <p><span id="productBrandText"></span></p>
                   <img
@@ -384,14 +524,20 @@
                     class="rating-image"
                   />
                   <p id="productLink-text" class="product-link"></p>
-                  <p><span id="productCost"></span></p>
+                  <p class="cost-popup"><span id="productCost"></span></p>
                   <div class="stock-status" id="productStockStatus"></div>
                   <p id="productCategory-text"></p>
-                  <p><span id="productRoutine"></span></p>
-                  <p class="date-info"><span id="productRestockDate"></span></p>
-                  <p><span id="productComments"></span></p>
+                  <p class="routine-popup"><span id="productRoutine"></span></p>
+                  <p class="date-info date-popup">
+                    <span id="productRestockDate"></span>
+                  </p>
+                  <p class="comments-popup">
+                    <span id="productComments"></span>
+                  </p>
                 </div>
               </div>
+              <!-- Button to edit the product details. Users are re-directed to the product input form pop-up,
+              but with all details of the current product filled in to edit. -->
               <div class="save-product">
                 <button id="editProductButton">Edit</button>
               </div>
@@ -401,6 +547,8 @@
       </section>
     </main>
 
+    <!-- Button to scroll to the top of the page. This is useful if the user has multiple products in their
+    skincare tracker. I used an image designed on Figma for the button. -->
     <div class="scroll-button">
       <img
         src="assets/top-button.png"
@@ -410,6 +558,7 @@
       />
     </div>
 
+    <!-- Adding a footer for visual feedback of the end of the web app. -->
     <footer>
       <p class="footer-text">
         Your road to good skin | © Purvi Bothra - DECO2017
